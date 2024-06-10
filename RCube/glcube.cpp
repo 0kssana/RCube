@@ -14,3 +14,7 @@ std::vector<std::vector<int>> d_state = {
         {3,3,3,3,3,3,3,3,3},
         {2,2,2,2,2,2,2,2,2},
 };
+
+void Glcubie::setColor(position newPos, int newColor){
+    color[newPos] = newColor;
+}
