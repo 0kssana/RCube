@@ -69,6 +69,155 @@ void init()
     glEnable(GL_LIGHTING);
 }
 
+void specialKeys(int key, int, int)
+{
+    // клавиши влево/вправо вращают по Y
+    // клавиши вверх/вниз вращают по X
+    // F1 - возвращает в начальное положение
+    if (key == GLUT_KEY_DOWN)
+    {
+        xRot += 3;
+        if (xRot >= 360)
+            xRot -= 360;
+        glutPostRedisplay();
+    }
+
+    if (key == GLUT_KEY_UP)
+    {
+        xRot -= 3;
+        if (xRot < 0)
+            xRot += 360;
+        glutPostRedisplay();
+    }
+
+    if (key == GLUT_KEY_RIGHT)
+    {
+        yRot += 3;
+        if (yRot >= 360)
+            yRot -= 360;
+        glutPostRedisplay();
+    }
+
+    if (key == GLUT_KEY_LEFT)
+    {
+        yRot -= 3;
+        if (yRot < 0)
+            yRot += 360;
+        glutPostRedisplay();
+    }
+
+    if (key == GLUT_KEY_HOME)
+    {
+        translateZ += 5;
+        glutPostRedisplay();
+    }
+
+    if (key == GLUT_KEY_END)
+    {
+        translateZ -= 5;
+        glutPostRedisplay();
+    }
+
+    if (key == GLUT_KEY_F1)
+    {
+        cube.reset();
+        glutPostRedisplay();
+    }
+
+    if (key == GLUT_KEY_F2)
+    {
+        solveB = 1-solveB;
+        /*cube.saveCube();
+        solver a(cube.saved());
+        std::ifstream storage("storage.txt");*/
+
+        /*while(!storage.eof()) {
+            unsigned char rot = storage.get();
+            unsigned char tmp = storage.get();
+            int qty = tmp-'0';
+            int qty0 = rot-'0';
+            seq.emplace_back(qty0,qty);
+            *//*if (rot == 'F') {
+                cube.clock=-1;
+                for (int i = 0; i < qty; i++) {
+                    cube.Rotate(front, 3);
+                    display();
+                }
+                cube.clock=1;
+            } else if (rot == 'B') {
+                for (int i = 0; i < qty; i++) {
+                    cube.Rotate(back, 3);
+                    display();
+                }
+            }*//*
+        }*/
+        std::reverse(seq.begin(), seq.end());
+        cube.clock=-1;
+        cube.i = 0;
+        cube.Rotate(seq[cube.i].first, 3, seq[cube.i].second);
+        glutPostRedisplay();
+    }
+}
+
+void keys(unsigned char key, int, int)
+{
+    // если нажали клавишу от 0 до 5 - начинаем поворот на 3 градуса
+    if (cube.current == -1 && key >= '0' && key < '6')
+    {
+        cube.Rotate(key - '0', 3,1);
+        display();
+    }else if( key == 'z'){
+        cube.changeDir();
+    }else if( key == 'f'){
+        std::ifstream in(fi);
+        cube.fsetCube(in);
+        in.close();
+    }else if( key == 's'){
+        std::ofstream out(fo);
+        cube.fsaveCube(out);
+        out.close();
+    }else if( key == 'c'){
+        std::ofstream console;
+        console.basic_ios<char>::rdbuf(std::cout.rdbuf());
+        cube.fsaveCube(console);
+        console.close();
+    }
+}
+
+void mouse(int key, int state, int, int)
+{
+    if (key == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
+    {
+        // переключаем флаг
+        timerOn = 1 - timerOn;
+    }
+}
+
+void timer(int)
+{
+    glutTimerFunc(TIMER, timer, 0);
+    if (timerOn)
+    {
+        // если включен автоматический поворот, и смотрим
+        // если сейчас никакая грань не крутится, то начинаем крутить случайную,
+        // иначе крутим текущую
+        if (cube.current == -1) {
+            int tmp = rand() % 6;
+            seq.push_back({tmp,1});
+            keys(tmp + '0', 0, 0);
+        }
+        else
+            cube.Rotate(cube.current, 3,1);
+    }
+    else
+    {
+        if(!seq.empty() && cube.i <seq.size()){
+            cube.Rotate(seq[cube.i].first, 3,seq[cube.i].second);
+        }else if (cube.current != -1)
+            cube.Rotate(cube.current, 3,1);
+    }
+    display();
+}
 
 int main(int argc, char** argv)
 {
@@ -91,6 +240,7 @@ int main(int argc, char** argv)
     glutReshapeFunc(reshape);
     glutKeyboardFunc(keys);
     glutMouseFunc(mouse);
+    glutTimerFunc(TIMER, timer, 0);
     glutSpecialFunc(specialKeys);
     glutMainLoop();
     return 0;
