@@ -28,3 +28,13 @@ void Glcubie::rotateZ()
     color[left] = color[down];
     color[down] = tmp;
 }
+
+// поворот на плоскости X0Z
+void Glcubie::rotateY()
+{
+    int tmp = color[right];
+    color[right] = color[front];
+    color[front] = color[left];
+    color[left] = color[back];
+    color[back] = tmp;
+}
