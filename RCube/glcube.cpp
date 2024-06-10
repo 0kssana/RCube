@@ -48,3 +48,77 @@ void Glcubie::rotateX()
     color[front] = color[down];
     color[down] = tmp;
 }
+
+void Glcubie::setColor(position pos) {
+
+    static const GLfloat colors[7][3] =
+            {   { 0.8f, 0.8f, 1.0f }, //(white)
+                { 1.0f, 0.3f, 0.3f }, //(red)
+                { 0.3f, 0.3f, 1.0f }, //(blue)
+                {0.0f, 1.0f, 0.0f }, //(green)
+                { 1.0f, 1.0f, 0.0f }, //(yellow)
+                { 1.0f, 0.5f, 0.0f }, //(orange)
+                { 0.0f, 0.0f, 0.0f },  // frame
+            };
+
+    const GLfloat* C = colors[color[pos]];
+    glColor3fv(C);
+
+}
+
+void Glcubie::drawCubie(GLenum type = GL_QUADS) {
+    glPushMatrix();
+    glBegin(type);
+
+    setColor(up);
+    glNormal3f(0, 1, 0);
+    glVertex3f(size, size, 0);
+    glVertex3f(0, size, 0);
+    glVertex3f(0, size, size);
+    glVertex3f(size, size, size);
+
+    setColor(down);
+    glNormal3f(0, -1, 0);
+    glVertex3f(size, 0, size);
+    glVertex3f(0, 0, size);
+    glVertex3f(0, 0, 0);
+    glVertex3f(size, 0, 0);
+
+    setColor(front);
+    glNormal3f(0, 0, 1);
+    glVertex3f(size, size, size);
+    glVertex3f(0, size, size);
+    glVertex3f(0, 0, size);
+    glVertex3f(size, 0, size);
+
+    setColor(back);
+    glNormal3f(0, 0, -1);
+    glVertex3f(size, 0, 0);
+    glVertex3f(0, 0, 0);
+    glVertex3f(0, size, 0);
+    glVertex3f(size, size, 0);
+
+    setColor(left);
+    glNormal3f(-1, 0, 0);
+    glVertex3f(0, size, size);
+    glVertex3f(0, size, 0);
+    glVertex3f(0, 0, 0);
+    glVertex3f(0, 0, size);
+
+    setColor(right);
+    glNormal3f(1, 0, 0);
+    glVertex3f(size, size, 0);
+    glVertex3f(size, size, size);
+    glVertex3f(size, 0, size);
+    glVertex3f(size, 0, 0);
+
+    glEnd();
+    glPopMatrix();
+}
+
+void Glcubie::drawCubie(double x, double y, double z) {
+    glPushMatrix();
+    glTranslated(x, y, z);
+    drawCubie();
+    glPopMatrix();
+}
