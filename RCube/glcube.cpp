@@ -18,3 +18,13 @@ std::vector<std::vector<int>> d_state = {
 void Glcubie::setColor(position newPos, int newColor){
     color[newPos] = newColor;
 }
+
+// поворот на плоскости X0Y
+void Glcubie::rotateZ()
+{
+    int tmp = color[right];
+    color[right] = color[up];
+    color[up] = color[left];
+    color[left] = color[down];
+    color[down] = tmp;
+}
