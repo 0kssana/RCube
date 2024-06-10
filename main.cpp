@@ -69,3 +69,29 @@ void init()
     glEnable(GL_LIGHTING);
 }
 
+
+int main(int argc, char** argv)
+{
+    for (int i = 1; i < argc && i < 6; i+=2) {
+        if (argc-i>=1 && strcmp(argv[i], "-i") == 0) {
+            fi = argv[i+1];
+        }
+        if (argc-i>=1 && strcmp(argv[i], "-o") == 0) {
+            fo = argv[i+1];
+        }
+    }
+
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+    glutInitWindowSize(800, 700);
+    glutInitWindowPosition(1, 1);
+    glutCreateWindow("Cube");
+    init();
+    glutDisplayFunc(display);
+    glutReshapeFunc(reshape);
+    glutKeyboardFunc(keys);
+    glutMouseFunc(mouse);
+    glutSpecialFunc(specialKeys);
+    glutMainLoop();
+    return 0;
+}
