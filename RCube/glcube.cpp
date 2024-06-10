@@ -122,3 +122,171 @@ void Glcubie::drawCubie(double x, double y, double z) {
     drawCubie();
     glPopMatrix();
 }
+
+//---CUBE---
+//PRIVATE
+GlCube::GlCube(float s) {
+    cube.resize(3);
+    for (int i = 0; i<3;i++){
+        cube[i].resize(3);
+        for (int j = 0; j<3; j++)
+            cube[i][j].resize(3);
+    }
+
+    rotate.resize(6);
+    current = -1;
+    correct = solved = false;
+    size = s;
+    clock = 1;
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            for (int k = 0; k < 3; k++)
+                cube[i][j][k].size = (size / 3.0) * 0.95;
+    setCube(d_state);
+}
+
+//HELPERS
+void GlCube::setCube(const std::vector<std::vector<int> > &newCube) {
+    std::cout<<newCube.size()<<std::endl;
+    if (newCube.size()!=6)
+        throw std::length_error("Bad length!\n");
+    for (int j = 0; j < 6; ++j) {
+        if (newCube[j].size() != 9)
+            throw std::length_error("Bad length!\n");
+    }
+
+#ifndef RESET
+#define RESET
+    f_format.resize(6);
+    for (int j = 0; j < 6; ++j)
+        f_format[j].resize(9);
+#endif // RESET
+    f_format = newCube;
+
+
+//      FRONT
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            cube[0][i][j].color[front] = newCube[front][i*3+j];
+        }
+    }
+//      BACK
+    for (int i = 0; i < 3 ; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            cube[2][2-i][j].color[back] = newCube[back][i*3+j];
+        }
+    }
+//      UP
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            cube[2-i][0][j].color[up] = newCube[up][i*3+j];
+        }
+    }
+//      DOWN
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            cube[i][2][j].color[down] = newCube[down][i*3+j];
+        }
+    }
+//      LEFT
+    for (int i = 0; i <3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            cube[2-j][i][0].color[left] = newCube[left][i*3+j];
+        }
+    }
+//      RIGHT
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            cube[j][i][2].color[right] = newCube[right][i*3+j];
+        }
+    }
+}
+
+void GlCube::saveCube() {
+    f_format.resize(6);
+    for (int i = 0; i < 6; ++i)
+        f_format[i].resize(9);
+
+//   FRONT
+    for (int i = 0; i<3; i++)
+        for (int j = 0; j < 3; ++j)
+            f_format[front][i*3+j] = cube[0][i][j].color[front];
+
+//  BACK
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            f_format[back][i*3+j] = cube[2][2-i][j].color[back];
+
+//  UP
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            f_format[up][i*3+j] = cube[2-i][0][j].color[up];
+
+//  DOWN
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            f_format[down][i*3+j] = cube[i][2][j].color[down];
+
+//  LEFT
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            f_format[left][i*3+j] = cube[2-j][i][0].color[left];
+
+//  RIGHT
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            f_format[right][i*3+j] = cube[j][i][2].color[right];
+}
+
+//PUBLIC
+//SET & SAVING CUBE FROM/IN FILE
+void GlCube::fsetCube(std::ifstream &fin) {
+    std::vector<std::vector<int>> res(6);
+    for (int i = 0; i < 6; ++i) {
+        res[i].resize(9);
+    }
+    std::string side;
+    for(int i = 0; i<6;i++){
+        fin >> side;
+        position p;
+        if (side=="FRONT"){
+            p = front;
+        } else if (side=="DOWN"){
+            p = down;
+        } else if (side=="UP"){
+            p = up;
+        } else if (side=="BACK"){
+            p = back;
+        } else if (side=="LEFT"){
+            p = left;
+        } else if (side=="RIGHT"){
+            p = right;
+        } else
+            throw std::runtime_error("Wrong file format");
+
+        for (int j = 0; j < 9; ++j) {
+            fin >> res[p][j];
+        }
+    }
+    setCube(res);
+    std::cout<<std::endl;
+}
+
+void GlCube::fsaveCube(std::ofstream &fo) {
+    saveCube();
+
+    std::vector<std::string> pos = {"FRONT", "BACK", "UP", "DOWN", "LEFT", "RIGHT"};
+    for (int i = 0; i < 6; ++i) {
+        fo<<pos[i]<<"\n";
+        for (int j = 0; j < 3; ++j) {
+            for (int k = 0; k < 3; ++k) {
+                fo<<f_format[i][j*3+k]<<" ";
+            }
+            fo<<"\n";
+        }
+    }
+}
+
+std::vector<std::vector<int>>& GlCube::saved(){
+    return f_format;
+}
