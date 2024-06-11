@@ -1,5 +1,6 @@
 #include <iostream>
 #include "glcube.h"
+#include "solver.h"
 #include <ctime>
 #include <cstdlib>
 #include <algorithm>
@@ -127,30 +128,6 @@ void specialKeys(int key, int, int)
     if (key == GLUT_KEY_F2)
     {
         solveB = 1-solveB;
-        /*cube.saveCube();
-        solver a(cube.saved());
-        std::ifstream storage("storage.txt");*/
-
-        /*while(!storage.eof()) {
-            unsigned char rot = storage.get();
-            unsigned char tmp = storage.get();
-            int qty = tmp-'0';
-            int qty0 = rot-'0';
-            seq.emplace_back(qty0,qty);
-            *//*if (rot == 'F') {
-                cube.clock=-1;
-                for (int i = 0; i < qty; i++) {
-                    cube.Rotate(front, 3);
-                    display();
-                }
-                cube.clock=1;
-            } else if (rot == 'B') {
-                for (int i = 0; i < qty; i++) {
-                    cube.Rotate(back, 3);
-                    display();
-                }
-            }*//*
-        }*/
         std::reverse(seq.begin(), seq.end());
         cube.clock=-1;
         cube.i = 0;
@@ -181,6 +158,33 @@ void keys(unsigned char key, int, int)
         console.basic_ios<char>::rdbuf(std::cout.rdbuf());
         cube.fsaveCube(console);
         console.close();
+    }else if(key == 'a') {
+        std::cout << cube.i;
+        cube.saveCube();
+        solver a(cube.saved());
+        std::ifstream storage("storage.txt");
+
+        while(!storage.eof()) {
+            unsigned char rot = storage.get();
+            unsigned char tmp = storage.get();
+            int qty = tmp-'0';
+            int qty0 = rot-'0';
+            seq.emplace_back(qty0,qty);
+            if (rot == 'F') {
+                cube.clock=-1;
+                for (int i = 0; i < qty; i++) {
+                    cube.Rotate(cube.i, 3, 1);
+                    display();
+                }
+                cube.clock=1;
+            } else if (rot == 'B') {
+                for (int i = 0; i < qty; i++) {
+                      cube.Rotate(cube.current, 3, 1);
+                    display();
+                }
+            }
+        }
+
     }
 }
 
