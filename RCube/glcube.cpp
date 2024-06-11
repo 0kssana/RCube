@@ -383,3 +383,85 @@ void GlCube::Rotate(int idx, int angle, int angle90) {
 void GlCube::changeDir() {
     clock*=(-1);
 }
+
+//DRAWING
+void GlCube::drawCube() {
+    const double K = 0.65;
+    // рисуем корпус - это просто куб черного цвета, размер которого равен K*size
+    glPushMatrix();
+    glColor3f(0, 0, 0);
+    glTranslatef(((1.0 - K) / 2) * size + K * size / 2, ((1.0 - K) / 2) * size + K * size / 2, ((1.0 - K) / 2) * size + K * size / 2);
+    glutSolidCube(size * K);
+    glPopMatrix();
+
+    memset(ok, true, sizeof(ok));
+    if (current != -1)
+    {
+        glPushMatrix();
+        int i, j, k;
+
+        if (current == front || current == back)
+        {
+            // 0 <= current <= 1 показывает, что сейчас крутится грань на плоскости X0Y
+            // current = 0 - нижняя часть
+            // current = 1 - верхняя часть
+            k = current == front? 0: 2;
+            // следовательно ok слоя  k  устанавливаем в false
+            for(i = 0; i < 3; i++)
+                for(j = 0; j < 3; j++)
+                    ok[k][i][j] = false;
+
+            // теперь нужно покрутить грань под номером current на угол rotate[current]
+            // относительно центра этой грани
+            // для этого сдвинемся к центру, покрутим, сдвинемся обратно
+            glTranslated(size / 2, size / 2, 0);   // сдвигаемся к центру
+            glRotatef(rotate[current], 0, 0, 1);   // крутим
+            glTranslated(-size / 2, -size / 2, 0); // сдвигаемся обратно
+            // рисуем
+            for(i = 0; i < 3; i++)
+                for(j = 0; j < 3; j++)
+                    cube[k][i][j].drawCubie(size / 3 * j, size / 3 * (2-i), size / 3 * (2-k));
+        }
+            // аналагично с остальными четырмя гранями
+        else if (current == up || current == down)
+        {
+            j = current == up? 0: 2;
+
+            for(i = 0; i < 3; i++)
+                for(k = 0; k < 3; k++)
+                    ok[k][j][i] = false;
+
+            glTranslated(size / 2, 0, size / 2);
+            glRotatef(rotate[current], 0, 1, 0);
+            glTranslated(-size / 2, 0, -size / 2);
+            for(i = 0; i < 3; i++)
+                for(k = 0; k < 3; k++)
+                    cube[k][j][i].drawCubie(size / 3 * i, size / 3 * (2-j), size / 3 * (2-k));
+        }
+        else if (current == left || current == right)
+        {
+            i = current == left? 0: 2;
+            for(j = 0; j < 3; j++)
+                for(k = 0; k < 3; k++)
+                    ok[k][j][i] = false;
+
+            glTranslated(0, size / 2, size / 2);
+            glRotatef(rotate[current], 1, 0, 0);
+            glTranslated(0, -size / 2, -size / 2);
+            for(j = 0; j < 3; j++)
+                for(k = 0; k < 3; k++)
+                    cube[k][j][i].drawCubie(size / 3 * i, size / 3 * (2-j), size / 3 * (2-k));
+        }
+        glPopMatrix();
+    }
+
+    for (int i = 0; i<3; i++)
+        for (int j = 0; j < 3; j++)
+            for (int k = 0; k < 3; k++)
+                if (ok[i][j][k])
+                    cube[i][j][k].drawCubie(size / 3. * k, size / 3. * (2-j), size / 3. * (2-i));
+}
+
+void GlCube::reset() {
+    setCube(f_format);
+}
