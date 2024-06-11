@@ -1,0 +1,91 @@
+\doxysection{glcube.\+h}
+\hypertarget{glcube_8h_source}{}\label{glcube_8h_source}\mbox{\hyperlink{glcube_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ RCUBE\_GLCUBE\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ RCUBE\_GLCUBE\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cube__base_8h}{cube\_base.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <GL/freeglut.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <GLFW/glfw3.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <GL/glut.h>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_glcubie}{Glcubie}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structcubie}{cubie}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_glcubie_a2cd9200de7f6a70efc28515c67a3c09c}{color}}[6];\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_glcubie_ac3ce0288e72fd41178f698cfc8a8efc4}{size}};\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{struct_glcubie_a9cfb3640f25be17ee517c5bf45700ee2}{Glcubie}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_glcubie_ade053b82e5db55f0642337497e1b22df}{setColor}}(\mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9}{position}}\ newPos,\ \textcolor{keywordtype}{int}\ newColor)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_glcubie_a272858157a5fe210203bd8f6ca7919b2}{rotateZ}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_glcubie_ab26af6d64644a45e424aff30c5566d75}{rotateY}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_glcubie_aa576a28198e2ce2518e523de25998bb1}{rotateX}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_glcubie_ade053b82e5db55f0642337497e1b22df}{setColor}}(\mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9}{position}}\ pos);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_glcubie_affb739a451de9858034c3c7c6899b814}{drawCubie}}(GLenum\ type);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_glcubie_affb739a451de9858034c3c7c6899b814}{drawCubie}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ z);}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_gl_cube}{GlCube}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_cube}{Cube}}\ \{}
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{float}\ size;\ }
+\DoxyCodeLine{00082\ \ \ \ \ std::vector<std::vector<std::vector<Glcubie>>>\ cube;\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{bool}\ solved;\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ correct;\ }
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ Helper\ storage}}
+\DoxyCodeLine{00087\ \ \ \ \ std::vector<std::vector<Glcubie>>\ slice;\ }
+\DoxyCodeLine{00088\ \ \ \ \ std::vector<std::vector<int>>\ f\_format;\ }
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ Drawing\ storage}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ ok[4][4][4];\ }
+\DoxyCodeLine{00092\ \ \ \ \ std::vector<int>\ rotate;\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_gl_cube_a570a1d133ff375b87388f3614a31ecf8}{clock}};\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_gl_cube_a09f452d7fd94cc4c55e23df39887f370}{current}};\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_gl_cube_a14a4a21fd6539bd440e338ef2662824f}{i}}\ =\ 0;\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_gl_cube}{GlCube}}(\textcolor{keywordtype}{float}\ s);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//\ File\ work}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gl_cube_a1213138225aa8e244591de992a0d45d9}{setCube}}(\textcolor{keyword}{const}\ std::vector<std::vector<int>>\&\ newCube)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gl_cube_a3695a4a21daa11242311d9c0d82a669f}{saveCube}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gl_cube_a5c381d7f1130f5701f6b0cf11c6f1326}{fsetCube}}(std::ifstream\&\ fin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gl_cube_a69708238a2a9c33b8aebf739d1e08877}{fsaveCube}}(std::ofstream\&\ fo)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00136\ \ \ \ \ std::vector<std::vector<int>>\&\ \mbox{\hyperlink{class_gl_cube_a7e78391fbd04442c38eb609f1c4557a1}{saved}}();}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ Rotation}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gl_cube_a350d962471e74230aa63953e2b4147f0}{rotate90}}(\textcolor{keywordtype}{int}\ pos,\ \textcolor{keywordtype}{int}\ sign)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gl_cube_abe078f21635d520f60f7d007a764500c}{Rotate}}(\textcolor{keywordtype}{int}\ idx,\ \textcolor{keywordtype}{int}\ angle,\ \textcolor{keywordtype}{int}\ angle90);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gl_cube_a64f8587c9c118a28eaa803f4ed1edbbd}{changeDir}}();}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gl_cube_a84494eafd624b572a7fc5c3fef905a8d}{rotate\_seq}}(std::ifstream\&\ fin);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//\ Drawing}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gl_cube_a1947189af620a8e87f5b15d0f480e215}{drawCube}}();}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gl_cube_a7ada3df4744e939c9c07bcf1cb4fbb9a}{reset}}();}
+\DoxyCodeLine{00178\ \};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RCUBE\_GLCUBE\_H}}
+
+\end{DoxyCode}

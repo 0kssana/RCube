@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Cube: Исходный файл glcube.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Cube
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">glcube.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="glcube_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef RCUBE_GLCUBE_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define RCUBE_GLCUBE_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="cube__base_8h.html">cube_base.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;GL/freeglut.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;GLFW/glfw3.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;GL/glut.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="struct_glcubie.html">   21</a></span><span class="keyword">struct </span><a class="code hl_class" href="struct_glcubie.html">Glcubie</a> : <span class="keyword">public</span> <a class="code hl_struct" href="structcubie.html">cubie</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="struct_glcubie.html#a2cd9200de7f6a70efc28515c67a3c09c">   22</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_glcubie.html#a2cd9200de7f6a70efc28515c67a3c09c">color</a>[6]; </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="struct_glcubie.html#ac3ce0288e72fd41178f698cfc8a8efc4">   23</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_glcubie.html#ac3ce0288e72fd41178f698cfc8a8efc4">size</a>; </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_function" href="struct_glcubie.html#a9cfb3640f25be17ee517c5bf45700ee2">Glcubie</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_glcubie.html#ade053b82e5db55f0642337497e1b22df">setColor</a>(<a class="code hl_enumeration" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a> newPos, <span class="keywordtype">int</span> newColor) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_glcubie.html#a272858157a5fe210203bd8f6ca7919b2">rotateZ</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_glcubie.html#ab26af6d64644a45e424aff30c5566d75">rotateY</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_glcubie.html#aa576a28198e2ce2518e523de25998bb1">rotateX</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_glcubie.html#ade053b82e5db55f0642337497e1b22df">setColor</a>(<a class="code hl_enumeration" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a> pos);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_glcubie.html#affb739a451de9858034c3c7c6899b814">drawCubie</a>(GLenum type);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_glcubie.html#affb739a451de9858034c3c7c6899b814">drawCubie</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> z);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
+</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="foldopen" id="foldopen00079" data-start="{" data-end="};">
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="class_gl_cube.html">   79</a></span><span class="keyword">class </span><a class="code hl_class" href="class_gl_cube.html">GlCube</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_cube.html">Cube</a> {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">float</span> size; </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    std::vector&lt;std::vector&lt;std::vector&lt;Glcubie&gt;&gt;&gt; cube; </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">bool</span> solved; </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">bool</span> correct; </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">// Helper storage</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    std::vector&lt;std::vector&lt;Glcubie&gt;&gt; slice; </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    std::vector&lt;std::vector&lt;int&gt;&gt; f_format; </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="comment">// Drawing storage</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">bool</span> ok[4][4][4]; </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    std::vector&lt;int&gt; rotate; </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="class_gl_cube.html#a570a1d133ff375b87388f3614a31ecf8">   95</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_gl_cube.html#a570a1d133ff375b87388f3614a31ecf8">clock</a>; </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="class_gl_cube.html#a09f452d7fd94cc4c55e23df39887f370">   96</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_gl_cube.html#a09f452d7fd94cc4c55e23df39887f370">current</a>; </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_gl_cube.html#a14a4a21fd6539bd440e338ef2662824f">   97</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_gl_cube.html#a14a4a21fd6539bd440e338ef2662824f">i</a> = 0; </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="class_gl_cube.html">GlCube</a>(<span class="keywordtype">float</span> s);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">// File work</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_gl_cube.html#a1213138225aa8e244591de992a0d45d9">setCube</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt;&amp; newCube) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_gl_cube.html#a3695a4a21daa11242311d9c0d82a669f">saveCube</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_gl_cube.html#a5c381d7f1130f5701f6b0cf11c6f1326">fsetCube</a>(std::ifstream&amp; fin) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_gl_cube.html#a69708238a2a9c33b8aebf739d1e08877">fsaveCube</a>(std::ofstream&amp; fo) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    std::vector&lt;std::vector&lt;int&gt;&gt;&amp; <a class="code hl_function" href="class_gl_cube.html#a7e78391fbd04442c38eb609f1c4557a1">saved</a>();</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="comment">// Rotation</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_gl_cube.html#a350d962471e74230aa63953e2b4147f0">rotate90</a>(<span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> sign) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_gl_cube.html#abe078f21635d520f60f7d007a764500c">Rotate</a>(<span class="keywordtype">int</span> idx, <span class="keywordtype">int</span> angle, <span class="keywordtype">int</span> angle90);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_gl_cube.html#a64f8587c9c118a28eaa803f4ed1edbbd">changeDir</a>();</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="class_gl_cube.html#a84494eafd624b572a7fc5c3fef905a8d">  165</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_gl_cube.html#a84494eafd624b572a7fc5c3fef905a8d">rotate_seq</a>(std::ifstream&amp; fin);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="comment">// Drawing</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_gl_cube.html#a1947189af620a8e87f5b15d0f480e215">drawCube</a>();</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_gl_cube.html#a7ada3df4744e939c9c07bcf1cb4fbb9a">reset</a>();</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>};</div>
+</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="preprocessor">#endif </span><span class="comment">// RCUBE_GLCUBE_H</span></div>
+<div class="ttc" id="aclass_cube_html"><div class="ttname"><a href="class_cube.html">Cube</a></div><div class="ttdoc">Базовый абстрактный класс для кубика Рубика.</div><div class="ttdef"><b>Definition</b> cube_base.h:72</div></div>
+<div class="ttc" id="aclass_gl_cube_html"><div class="ttname"><a href="class_gl_cube.html">GlCube</a></div><div class="ttdoc">Класс для представления кубика Рубика. Наследуется от Cube.</div><div class="ttdef"><b>Definition</b> glcube.h:79</div></div>
+<div class="ttc" id="aclass_gl_cube_html_a09f452d7fd94cc4c55e23df39887f370"><div class="ttname"><a href="class_gl_cube.html#a09f452d7fd94cc4c55e23df39887f370">GlCube::current</a></div><div class="ttdeci">int current</div><div class="ttdoc">Текущий поворот.</div><div class="ttdef"><b>Definition</b> glcube.h:96</div></div>
+<div class="ttc" id="aclass_gl_cube_html_a1213138225aa8e244591de992a0d45d9"><div class="ttname"><a href="class_gl_cube.html#a1213138225aa8e244591de992a0d45d9">GlCube::setCube</a></div><div class="ttdeci">void setCube(const std::vector&lt; std::vector&lt; int &gt; &gt; &amp;newCube) override</div><div class="ttdoc">Устанавливает состояние кубика.</div><div class="ttdef"><b>Definition</b> glcube.cpp:197</div></div>
+<div class="ttc" id="aclass_gl_cube_html_a14a4a21fd6539bd440e338ef2662824f"><div class="ttname"><a href="class_gl_cube.html#a14a4a21fd6539bd440e338ef2662824f">GlCube::i</a></div><div class="ttdeci">int i</div><div class="ttdoc">Счетчик операций.</div><div class="ttdef"><b>Definition</b> glcube.h:97</div></div>
+<div class="ttc" id="aclass_gl_cube_html_a1947189af620a8e87f5b15d0f480e215"><div class="ttname"><a href="class_gl_cube.html#a1947189af620a8e87f5b15d0f480e215">GlCube::drawCube</a></div><div class="ttdeci">void drawCube()</div><div class="ttdoc">Отрисовывает кубик Рубика.</div><div class="ttdef"><b>Definition</b> glcube.cpp:473</div></div>
+<div class="ttc" id="aclass_gl_cube_html_a350d962471e74230aa63953e2b4147f0"><div class="ttname"><a href="class_gl_cube.html#a350d962471e74230aa63953e2b4147f0">GlCube::rotate90</a></div><div class="ttdeci">void rotate90(int pos, int sign) override</div><div class="ttdoc">Поворачивает грань кубика на 90 градусов.</div><div class="ttdef"><b>Definition</b> glcube.cpp:366</div></div>
+<div class="ttc" id="aclass_gl_cube_html_a3695a4a21daa11242311d9c0d82a669f"><div class="ttname"><a href="class_gl_cube.html#a3695a4a21daa11242311d9c0d82a669f">GlCube::saveCube</a></div><div class="ttdeci">void saveCube() override</div><div class="ttdoc">Сохраняет текущее состояние кубика.</div><div class="ttdef"><b>Definition</b> glcube.cpp:256</div></div>
+<div class="ttc" id="aclass_gl_cube_html_a570a1d133ff375b87388f3614a31ecf8"><div class="ttname"><a href="class_gl_cube.html#a570a1d133ff375b87388f3614a31ecf8">GlCube::clock</a></div><div class="ttdeci">int clock</div><div class="ttdoc">Часы для анимации.</div><div class="ttdef"><b>Definition</b> glcube.h:95</div></div>
+<div class="ttc" id="aclass_gl_cube_html_a5c381d7f1130f5701f6b0cf11c6f1326"><div class="ttname"><a href="class_gl_cube.html#a5c381d7f1130f5701f6b0cf11c6f1326">GlCube::fsetCube</a></div><div class="ttdeci">void fsetCube(std::ifstream &amp;fin) override</div><div class="ttdoc">Устанавливает состояние кубика из файла.</div><div class="ttdef"><b>Definition</b> glcube.cpp:301</div></div>
+<div class="ttc" id="aclass_gl_cube_html_a64f8587c9c118a28eaa803f4ed1edbbd"><div class="ttname"><a href="class_gl_cube.html#a64f8587c9c118a28eaa803f4ed1edbbd">GlCube::changeDir</a></div><div class="ttdeci">void changeDir()</div><div class="ttdoc">Изменяет направление вращения.</div><div class="ttdef"><b>Definition</b> glcube.cpp:461</div></div>
+<div class="ttc" id="aclass_gl_cube_html_a69708238a2a9c33b8aebf739d1e08877"><div class="ttname"><a href="class_gl_cube.html#a69708238a2a9c33b8aebf739d1e08877">GlCube::fsaveCube</a></div><div class="ttdeci">void fsaveCube(std::ofstream &amp;fo) override</div><div class="ttdoc">Сохраняет состояние кубика в файл.</div><div class="ttdef"><b>Definition</b> glcube.cpp:337</div></div>
+<div class="ttc" id="aclass_gl_cube_html_a7ada3df4744e939c9c07bcf1cb4fbb9a"><div class="ttname"><a href="class_gl_cube.html#a7ada3df4744e939c9c07bcf1cb4fbb9a">GlCube::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Сбрасывает состояние кубика.</div><div class="ttdef"><b>Definition</b> glcube.cpp:555</div></div>
+<div class="ttc" id="aclass_gl_cube_html_a7e78391fbd04442c38eb609f1c4557a1"><div class="ttname"><a href="class_gl_cube.html#a7e78391fbd04442c38eb609f1c4557a1">GlCube::saved</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; &amp; saved()</div><div class="ttdoc">Возвращает текущее сохраненное состояние кубика.</div><div class="ttdef"><b>Definition</b> glcube.cpp:356</div></div>
+<div class="ttc" id="aclass_gl_cube_html_a84494eafd624b572a7fc5c3fef905a8d"><div class="ttname"><a href="class_gl_cube.html#a84494eafd624b572a7fc5c3fef905a8d">GlCube::rotate_seq</a></div><div class="ttdeci">void rotate_seq(std::ifstream &amp;fin)</div><div class="ttdoc">Поворачивает кубик по последовательности из файла.</div></div>
+<div class="ttc" id="aclass_gl_cube_html_abe078f21635d520f60f7d007a764500c"><div class="ttname"><a href="class_gl_cube.html#abe078f21635d520f60f7d007a764500c">GlCube::Rotate</a></div><div class="ttdeci">void Rotate(int idx, int angle, int angle90)</div><div class="ttdoc">Поворачивает грань кубика на заданный угол.</div><div class="ttdef"><b>Definition</b> glcube.cpp:422</div></div>
+<div class="ttc" id="acube__base_8h_html"><div class="ttname"><a href="cube__base_8h.html">cube_base.h</a></div><div class="ttdoc">Заголовочный файл.</div></div>
+<div class="ttc" id="acube__base_8h_html_a7130b1618285588513fd1ff97884b9d9"><div class="ttname"><a href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a></div><div class="ttdeci">position</div><div class="ttdoc">Позиции сторон кубика Рубика.</div><div class="ttdef"><b>Definition</b> cube_base.h:29</div></div>
+<div class="ttc" id="astruct_glcubie_html"><div class="ttname"><a href="struct_glcubie.html">Glcubie</a></div><div class="ttdoc">Класс для представления одного маленького кубика в кубике Рубика. Наследуется от cubie.</div><div class="ttdef"><b>Definition</b> glcube.h:21</div></div>
+<div class="ttc" id="astruct_glcubie_html_a272858157a5fe210203bd8f6ca7919b2"><div class="ttname"><a href="struct_glcubie.html#a272858157a5fe210203bd8f6ca7919b2">Glcubie::rotateZ</a></div><div class="ttdeci">void rotateZ() override</div><div class="ttdoc">Поворот кубика на плоскости X0Y.</div><div class="ttdef"><b>Definition</b> glcube.cpp:42</div></div>
+<div class="ttc" id="astruct_glcubie_html_a2cd9200de7f6a70efc28515c67a3c09c"><div class="ttname"><a href="struct_glcubie.html#a2cd9200de7f6a70efc28515c67a3c09c">Glcubie::color</a></div><div class="ttdeci">int color[6]</div><div class="ttdoc">Цвета сторон маленького кубика.</div><div class="ttdef"><b>Definition</b> glcube.h:22</div></div>
+<div class="ttc" id="astruct_glcubie_html_a9cfb3640f25be17ee517c5bf45700ee2"><div class="ttname"><a href="struct_glcubie.html#a9cfb3640f25be17ee517c5bf45700ee2">Glcubie::Glcubie</a></div><div class="ttdeci">Glcubie()</div><div class="ttdoc">Конструктор по умолчанию.</div><div class="ttdef"><b>Definition</b> glcube.cpp:26</div></div>
+<div class="ttc" id="astruct_glcubie_html_aa576a28198e2ce2518e523de25998bb1"><div class="ttname"><a href="struct_glcubie.html#aa576a28198e2ce2518e523de25998bb1">Glcubie::rotateX</a></div><div class="ttdeci">void rotateX() override</div><div class="ttdoc">Поворот кубика на плоскости Y0Z.</div><div class="ttdef"><b>Definition</b> glcube.cpp:66</div></div>
+<div class="ttc" id="astruct_glcubie_html_ab26af6d64644a45e424aff30c5566d75"><div class="ttname"><a href="struct_glcubie.html#ab26af6d64644a45e424aff30c5566d75">Glcubie::rotateY</a></div><div class="ttdeci">void rotateY() override</div><div class="ttdoc">Поворот кубика на плоскости X0Z.</div><div class="ttdef"><b>Definition</b> glcube.cpp:54</div></div>
+<div class="ttc" id="astruct_glcubie_html_ac3ce0288e72fd41178f698cfc8a8efc4"><div class="ttname"><a href="struct_glcubie.html#ac3ce0288e72fd41178f698cfc8a8efc4">Glcubie::size</a></div><div class="ttdeci">float size</div><div class="ttdoc">Размер маленького кубика.</div><div class="ttdef"><b>Definition</b> glcube.h:23</div></div>
+<div class="ttc" id="astruct_glcubie_html_ade053b82e5db55f0642337497e1b22df"><div class="ttname"><a href="struct_glcubie.html#ade053b82e5db55f0642337497e1b22df">Glcubie::setColor</a></div><div class="ttdeci">void setColor(position newPos, int newColor) override</div><div class="ttdoc">Устанавливает цвет на указанной позиции.</div><div class="ttdef"><b>Definition</b> glcube.cpp:35</div></div>
+<div class="ttc" id="astruct_glcubie_html_affb739a451de9858034c3c7c6899b814"><div class="ttname"><a href="struct_glcubie.html#affb739a451de9858034c3c7c6899b814">Glcubie::drawCubie</a></div><div class="ttdeci">void drawCubie(GLenum type)</div><div class="ttdoc">Отрисовывает маленький кубик.</div><div class="ttdef"><b>Definition</b> glcube.cpp:100</div></div>
+<div class="ttc" id="astructcubie_html"><div class="ttname"><a href="structcubie.html">cubie</a></div><div class="ttdoc">Базовая структура для представления маленького кубика в составе большого кубика Рубика.</div><div class="ttdef"><b>Definition</b> cube_base.h:44</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

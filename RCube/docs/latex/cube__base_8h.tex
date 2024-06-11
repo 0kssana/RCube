@@ -1,0 +1,131 @@
+\doxysection{Файл cube\+\_\+base.\+h}
+\hypertarget{cube__base_8h}{}\label{cube__base_8h}\index{cube\_base.h@{cube\_base.h}}
+
+
+Заголовочный файл.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcubie}{cubie}}
+\begin{DoxyCompactList}\small\item\em Базовая структура для представления маленького кубика в составе большого кубика Рубика. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cube}{Cube}}
+\begin{DoxyCompactList}\small\item\em Базовый абстрактный класс для кубика Рубика. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Перечисления}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \{ \newline
+\mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1cade7bfe6c82a2aaaee276f752cdadf3a9}{white}} = 0
+, \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1caace9033470c7bfe9523c814271251908}{red}} = 1
+, \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1ca8f5fa6b484ac7e2a97943d915cf224e2}{blue}} = 2
+, \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1ca6aa25890c44e0aac424e56338abe47ca}{green}} = 3
+, \newline
+\mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1cab31edea3fab8c488c7a8f78545e7f5a9}{yellow}} = 4
+, \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1caa2b3d8856786dbe594751820bc1ff2e5}{orange}} = 5
+, \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1cadfae35394ef2ad547edb9abfc391cab4}{undef}} = 6
+ \}
+\begin{DoxyCompactList}\small\item\em Цвета кубика Рубика. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9}{position}} \{ \newline
+\mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9ab30562d2871f1a5b7d220569f54ccceb}{front}}
+, \mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9aa0cf137e48905c39b94f23a05b14e7c9}{back}}
+, \mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9aebc281bf093563220c2270ba57dedfce}{up}}
+, \mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9a00156fc42b17a87d0746d97b42caf296}{down}}
+, \newline
+\mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9ab0ac36b187aa60c167ffcead3d5a03c0}{left}}
+, \mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9af763d610923b0c4614e8ecd65212666a}{right}}
+ \}
+\begin{DoxyCompactList}\small\item\em Позиции сторон кубика Рубика. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{cube__base_8h_aa3af272eb34a507b4bbb3e7fbe690b23}\label{cube__base_8h_aa3af272eb34a507b4bbb3e7fbe690b23} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries d\+\_\+state}
+\begin{DoxyCompactList}\small\item\em Начальное состояние кубика. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заголовочный файл. 
+
+
+
+\doxysubsection{Перечисления}
+\Hypertarget{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1c}\label{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1c} 
+\index{cube\_base.h@{cube\_base.h}!Color@{Color}}
+\index{Color@{Color}!cube\_base.h@{cube\_base.h}}
+\doxysubsubsection{\texorpdfstring{Color}{Color}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}}}
+
+
+
+Цвета кубика Рубика. 
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{white@{white}!cube\_base.h@{cube\_base.h}}\index{cube\_base.h@{cube\_base.h}!white@{white}}}\Hypertarget{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1cade7bfe6c82a2aaaee276f752cdadf3a9}\label{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1cade7bfe6c82a2aaaee276f752cdadf3a9} 
+white&Белый цвет \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{red@{red}!cube\_base.h@{cube\_base.h}}\index{cube\_base.h@{cube\_base.h}!red@{red}}}\Hypertarget{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1caace9033470c7bfe9523c814271251908}\label{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1caace9033470c7bfe9523c814271251908} 
+red&Красный цвет \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{blue@{blue}!cube\_base.h@{cube\_base.h}}\index{cube\_base.h@{cube\_base.h}!blue@{blue}}}\Hypertarget{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1ca8f5fa6b484ac7e2a97943d915cf224e2}\label{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1ca8f5fa6b484ac7e2a97943d915cf224e2} 
+blue&Синий цвет \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{green@{green}!cube\_base.h@{cube\_base.h}}\index{cube\_base.h@{cube\_base.h}!green@{green}}}\Hypertarget{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1ca6aa25890c44e0aac424e56338abe47ca}\label{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1ca6aa25890c44e0aac424e56338abe47ca} 
+green&Зеленый цвет \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{yellow@{yellow}!cube\_base.h@{cube\_base.h}}\index{cube\_base.h@{cube\_base.h}!yellow@{yellow}}}\Hypertarget{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1cab31edea3fab8c488c7a8f78545e7f5a9}\label{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1cab31edea3fab8c488c7a8f78545e7f5a9} 
+yellow&Желтый цвет \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{orange@{orange}!cube\_base.h@{cube\_base.h}}\index{cube\_base.h@{cube\_base.h}!orange@{orange}}}\Hypertarget{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1caa2b3d8856786dbe594751820bc1ff2e5}\label{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1caa2b3d8856786dbe594751820bc1ff2e5} 
+orange&Оранжевый цвет \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{undef@{undef}!cube\_base.h@{cube\_base.h}}\index{cube\_base.h@{cube\_base.h}!undef@{undef}}}\Hypertarget{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1cadfae35394ef2ad547edb9abfc391cab4}\label{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1cadfae35394ef2ad547edb9abfc391cab4} 
+undef&Неопределенный цвет \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{cube__base_8h_a7130b1618285588513fd1ff97884b9d9}\label{cube__base_8h_a7130b1618285588513fd1ff97884b9d9} 
+\index{cube\_base.h@{cube\_base.h}!position@{position}}
+\index{position@{position}!cube\_base.h@{cube\_base.h}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9}{position}}}
+
+
+
+Позиции сторон кубика Рубика. 
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{front@{front}!cube\_base.h@{cube\_base.h}}\index{cube\_base.h@{cube\_base.h}!front@{front}}}\Hypertarget{cube__base_8h_a7130b1618285588513fd1ff97884b9d9ab30562d2871f1a5b7d220569f54ccceb}\label{cube__base_8h_a7130b1618285588513fd1ff97884b9d9ab30562d2871f1a5b7d220569f54ccceb} 
+front&Передняя сторона \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{back@{back}!cube\_base.h@{cube\_base.h}}\index{cube\_base.h@{cube\_base.h}!back@{back}}}\Hypertarget{cube__base_8h_a7130b1618285588513fd1ff97884b9d9aa0cf137e48905c39b94f23a05b14e7c9}\label{cube__base_8h_a7130b1618285588513fd1ff97884b9d9aa0cf137e48905c39b94f23a05b14e7c9} 
+back&Задняя сторона \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{up@{up}!cube\_base.h@{cube\_base.h}}\index{cube\_base.h@{cube\_base.h}!up@{up}}}\Hypertarget{cube__base_8h_a7130b1618285588513fd1ff97884b9d9aebc281bf093563220c2270ba57dedfce}\label{cube__base_8h_a7130b1618285588513fd1ff97884b9d9aebc281bf093563220c2270ba57dedfce} 
+up&Верхняя сторона \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{down@{down}!cube\_base.h@{cube\_base.h}}\index{cube\_base.h@{cube\_base.h}!down@{down}}}\Hypertarget{cube__base_8h_a7130b1618285588513fd1ff97884b9d9a00156fc42b17a87d0746d97b42caf296}\label{cube__base_8h_a7130b1618285588513fd1ff97884b9d9a00156fc42b17a87d0746d97b42caf296} 
+down&Нижняя сторона \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{left@{left}!cube\_base.h@{cube\_base.h}}\index{cube\_base.h@{cube\_base.h}!left@{left}}}\Hypertarget{cube__base_8h_a7130b1618285588513fd1ff97884b9d9ab0ac36b187aa60c167ffcead3d5a03c0}\label{cube__base_8h_a7130b1618285588513fd1ff97884b9d9ab0ac36b187aa60c167ffcead3d5a03c0} 
+left&Левая сторона \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{right@{right}!cube\_base.h@{cube\_base.h}}\index{cube\_base.h@{cube\_base.h}!right@{right}}}\Hypertarget{cube__base_8h_a7130b1618285588513fd1ff97884b9d9af763d610923b0c4614e8ecd65212666a}\label{cube__base_8h_a7130b1618285588513fd1ff97884b9d9af763d610923b0c4614e8ecd65212666a} 
+right&Правая сторона \\
+\hline
+
+\end{DoxyEnumFields}

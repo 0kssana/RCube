@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Cube: Исходный файл cube_base.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Cube
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">cube_base.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="cube__base_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1c">   15</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1cade7bfe6c82a2aaaee276f752cdadf3a9">   16</a></span>    <a class="code hl_enumvalue" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1cade7bfe6c82a2aaaee276f752cdadf3a9">white</a> = 0,    </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1caace9033470c7bfe9523c814271251908">   17</a></span>    <a class="code hl_enumvalue" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1caace9033470c7bfe9523c814271251908">red</a> = 1,      </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1ca8f5fa6b484ac7e2a97943d915cf224e2">   18</a></span>    <a class="code hl_enumvalue" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1ca8f5fa6b484ac7e2a97943d915cf224e2">blue</a> = 2,     </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1ca6aa25890c44e0aac424e56338abe47ca">   19</a></span>    <a class="code hl_enumvalue" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1ca6aa25890c44e0aac424e56338abe47ca">green</a> = 3,    </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1cab31edea3fab8c488c7a8f78545e7f5a9">   20</a></span>    <a class="code hl_enumvalue" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1cab31edea3fab8c488c7a8f78545e7f5a9">yellow</a> = 4,   </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1caa2b3d8856786dbe594751820bc1ff2e5">   21</a></span>    <a class="code hl_enumvalue" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1caa2b3d8856786dbe594751820bc1ff2e5">orange</a> = 5,   </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1cadfae35394ef2ad547edb9abfc391cab4">   22</a></span>    <a class="code hl_enumvalue" href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1cadfae35394ef2ad547edb9abfc391cab4">undef</a> = 6,    </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9">   29</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9ab30562d2871f1a5b7d220569f54ccceb">   30</a></span>    <a class="code hl_enumvalue" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9ab30562d2871f1a5b7d220569f54ccceb">front</a>,  </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9aa0cf137e48905c39b94f23a05b14e7c9">   31</a></span>    <a class="code hl_enumvalue" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9aa0cf137e48905c39b94f23a05b14e7c9">back</a>,   </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9aebc281bf093563220c2270ba57dedfce">   32</a></span>    <a class="code hl_enumvalue" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9aebc281bf093563220c2270ba57dedfce">up</a>,     </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9a00156fc42b17a87d0746d97b42caf296">   33</a></span>    <a class="code hl_enumvalue" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9a00156fc42b17a87d0746d97b42caf296">down</a>,   </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9ab0ac36b187aa60c167ffcead3d5a03c0">   34</a></span>    <a class="code hl_enumvalue" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9ab0ac36b187aa60c167ffcead3d5a03c0">left</a>,   </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9af763d610923b0c4614e8ecd65212666a">   35</a></span>    <a class="code hl_enumvalue" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9af763d610923b0c4614e8ecd65212666a">right</a>,  </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">extern</span> std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code hl_variable" href="cube__base_8h.html#aa3af272eb34a507b4bbb3e7fbe690b23">d_state</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structcubie.html">   44</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcubie.html">cubie</a> {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="structcubie.html#a103c93a97768900a90e8e6716e8be4af">   50</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structcubie.html#a103c93a97768900a90e8e6716e8be4af">setColor</a>(<a class="code hl_enumeration" href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a> pos, <span class="keywordtype">int</span> color) = 0;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structcubie.html#a119ca3aede5e790bc0f5b3b8c485fe3a">   55</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structcubie.html#a119ca3aede5e790bc0f5b3b8c485fe3a">rotateZ</a>() = 0;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structcubie.html#abbf1a255720b89bee984c3bbf7904cc7">   60</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structcubie.html#abbf1a255720b89bee984c3bbf7904cc7">rotateY</a>() = 0;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="structcubie.html#a058cd5ad436e4e8e98f58bfc9cb53187">   65</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structcubie.html#a058cd5ad436e4e8e98f58bfc9cb53187">rotateX</a>() = 0;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="};">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_cube.html">   72</a></span><span class="keyword">class </span><a class="code hl_class" href="class_cube.html">Cube</a> {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_cube.html#aca708afb25d1ff5c9d0a612507bf9cfa">   80</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#aca708afb25d1ff5c9d0a612507bf9cfa">setCube</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt;&amp; state) = 0;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="class_cube.html#ac1f76e8310d93fe5c44b5be82f16866c">   85</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#ac1f76e8310d93fe5c44b5be82f16866c">saveCube</a>() = 0;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="class_cube.html#ad12845ff0a2d5ab62fab0ff8b2c365ed">   91</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#ad12845ff0a2d5ab62fab0ff8b2c365ed">fsetCube</a>(std::ifstream&amp; in) = 0;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_cube.html#a14a5a3a04431e24fd006c6d50eaee3b9">   97</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a14a5a3a04431e24fd006c6d50eaee3b9">fsaveCube</a>(std::ofstream&amp; out) = 0;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="class_cube.html#afff107e65313f0775fbe6bee3af84570">  104</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#afff107e65313f0775fbe6bee3af84570">rotate90</a>(<span class="keywordtype">int</span> side, <span class="keywordtype">int</span> direction) = 0;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>};</div>
+</div>
+<div class="ttc" id="aclass_cube_html"><div class="ttname"><a href="class_cube.html">Cube</a></div><div class="ttdoc">Базовый абстрактный класс для кубика Рубика.</div><div class="ttdef"><b>Definition</b> cube_base.h:72</div></div>
+<div class="ttc" id="aclass_cube_html_a14a5a3a04431e24fd006c6d50eaee3b9"><div class="ttname"><a href="class_cube.html#a14a5a3a04431e24fd006c6d50eaee3b9">Cube::fsaveCube</a></div><div class="ttdeci">virtual void fsaveCube(std::ofstream &amp;out)=0</div><div class="ttdoc">Сохраняет текущее состояние кубика в файл.</div></div>
+<div class="ttc" id="aclass_cube_html_ac1f76e8310d93fe5c44b5be82f16866c"><div class="ttname"><a href="class_cube.html#ac1f76e8310d93fe5c44b5be82f16866c">Cube::saveCube</a></div><div class="ttdeci">virtual void saveCube()=0</div><div class="ttdoc">Сохраняет текущее состояние кубика.</div></div>
+<div class="ttc" id="aclass_cube_html_aca708afb25d1ff5c9d0a612507bf9cfa"><div class="ttname"><a href="class_cube.html#aca708afb25d1ff5c9d0a612507bf9cfa">Cube::setCube</a></div><div class="ttdeci">virtual void setCube(const std::vector&lt; std::vector&lt; int &gt; &gt; &amp;state)=0</div><div class="ttdoc">Устанавливает состояние кубика.</div></div>
+<div class="ttc" id="aclass_cube_html_ad12845ff0a2d5ab62fab0ff8b2c365ed"><div class="ttname"><a href="class_cube.html#ad12845ff0a2d5ab62fab0ff8b2c365ed">Cube::fsetCube</a></div><div class="ttdeci">virtual void fsetCube(std::ifstream &amp;in)=0</div><div class="ttdoc">Загружает состояние кубика из файла.</div></div>
+<div class="ttc" id="aclass_cube_html_afff107e65313f0775fbe6bee3af84570"><div class="ttname"><a href="class_cube.html#afff107e65313f0775fbe6bee3af84570">Cube::rotate90</a></div><div class="ttdeci">virtual void rotate90(int side, int direction)=0</div><div class="ttdoc">Поворачивает сторону кубика на 90 градусов.</div></div>
+<div class="ttc" id="acube__base_8h_html_a7130b1618285588513fd1ff97884b9d9"><div class="ttname"><a href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9">position</a></div><div class="ttdeci">position</div><div class="ttdoc">Позиции сторон кубика Рубика.</div><div class="ttdef"><b>Definition</b> cube_base.h:29</div></div>
+<div class="ttc" id="acube__base_8h_html_a7130b1618285588513fd1ff97884b9d9a00156fc42b17a87d0746d97b42caf296"><div class="ttname"><a href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9a00156fc42b17a87d0746d97b42caf296">down</a></div><div class="ttdeci">@ down</div><div class="ttdoc">Нижняя сторона</div><div class="ttdef"><b>Definition</b> cube_base.h:33</div></div>
+<div class="ttc" id="acube__base_8h_html_a7130b1618285588513fd1ff97884b9d9aa0cf137e48905c39b94f23a05b14e7c9"><div class="ttname"><a href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9aa0cf137e48905c39b94f23a05b14e7c9">back</a></div><div class="ttdeci">@ back</div><div class="ttdoc">Задняя сторона</div><div class="ttdef"><b>Definition</b> cube_base.h:31</div></div>
+<div class="ttc" id="acube__base_8h_html_a7130b1618285588513fd1ff97884b9d9ab0ac36b187aa60c167ffcead3d5a03c0"><div class="ttname"><a href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9ab0ac36b187aa60c167ffcead3d5a03c0">left</a></div><div class="ttdeci">@ left</div><div class="ttdoc">Левая сторона</div><div class="ttdef"><b>Definition</b> cube_base.h:34</div></div>
+<div class="ttc" id="acube__base_8h_html_a7130b1618285588513fd1ff97884b9d9ab30562d2871f1a5b7d220569f54ccceb"><div class="ttname"><a href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9ab30562d2871f1a5b7d220569f54ccceb">front</a></div><div class="ttdeci">@ front</div><div class="ttdoc">Передняя сторона</div><div class="ttdef"><b>Definition</b> cube_base.h:30</div></div>
+<div class="ttc" id="acube__base_8h_html_a7130b1618285588513fd1ff97884b9d9aebc281bf093563220c2270ba57dedfce"><div class="ttname"><a href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9aebc281bf093563220c2270ba57dedfce">up</a></div><div class="ttdeci">@ up</div><div class="ttdoc">Верхняя сторона</div><div class="ttdef"><b>Definition</b> cube_base.h:32</div></div>
+<div class="ttc" id="acube__base_8h_html_a7130b1618285588513fd1ff97884b9d9af763d610923b0c4614e8ecd65212666a"><div class="ttname"><a href="cube__base_8h.html#a7130b1618285588513fd1ff97884b9d9af763d610923b0c4614e8ecd65212666a">right</a></div><div class="ttdeci">@ right</div><div class="ttdoc">Правая сторона</div><div class="ttdef"><b>Definition</b> cube_base.h:35</div></div>
+<div class="ttc" id="acube__base_8h_html_aa3af272eb34a507b4bbb3e7fbe690b23"><div class="ttname"><a href="cube__base_8h.html#aa3af272eb34a507b4bbb3e7fbe690b23">d_state</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; d_state</div><div class="ttdoc">Начальное состояние кубика.</div><div class="ttdef"><b>Definition</b> glcube.cpp:17</div></div>
+<div class="ttc" id="acube__base_8h_html_ab87bacfdad76e61b9412d7124be44c1c"><div class="ttname"><a href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a></div><div class="ttdeci">Color</div><div class="ttdoc">Цвета кубика Рубика.</div><div class="ttdef"><b>Definition</b> cube_base.h:15</div></div>
+<div class="ttc" id="acube__base_8h_html_ab87bacfdad76e61b9412d7124be44c1ca6aa25890c44e0aac424e56338abe47ca"><div class="ttname"><a href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1ca6aa25890c44e0aac424e56338abe47ca">green</a></div><div class="ttdeci">@ green</div><div class="ttdoc">Зеленый цвет</div><div class="ttdef"><b>Definition</b> cube_base.h:19</div></div>
+<div class="ttc" id="acube__base_8h_html_ab87bacfdad76e61b9412d7124be44c1ca8f5fa6b484ac7e2a97943d915cf224e2"><div class="ttname"><a href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1ca8f5fa6b484ac7e2a97943d915cf224e2">blue</a></div><div class="ttdeci">@ blue</div><div class="ttdoc">Синий цвет</div><div class="ttdef"><b>Definition</b> cube_base.h:18</div></div>
+<div class="ttc" id="acube__base_8h_html_ab87bacfdad76e61b9412d7124be44c1caa2b3d8856786dbe594751820bc1ff2e5"><div class="ttname"><a href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1caa2b3d8856786dbe594751820bc1ff2e5">orange</a></div><div class="ttdeci">@ orange</div><div class="ttdoc">Оранжевый цвет</div><div class="ttdef"><b>Definition</b> cube_base.h:21</div></div>
+<div class="ttc" id="acube__base_8h_html_ab87bacfdad76e61b9412d7124be44c1caace9033470c7bfe9523c814271251908"><div class="ttname"><a href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1caace9033470c7bfe9523c814271251908">red</a></div><div class="ttdeci">@ red</div><div class="ttdoc">Красный цвет</div><div class="ttdef"><b>Definition</b> cube_base.h:17</div></div>
+<div class="ttc" id="acube__base_8h_html_ab87bacfdad76e61b9412d7124be44c1cab31edea3fab8c488c7a8f78545e7f5a9"><div class="ttname"><a href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1cab31edea3fab8c488c7a8f78545e7f5a9">yellow</a></div><div class="ttdeci">@ yellow</div><div class="ttdoc">Желтый цвет</div><div class="ttdef"><b>Definition</b> cube_base.h:20</div></div>
+<div class="ttc" id="acube__base_8h_html_ab87bacfdad76e61b9412d7124be44c1cade7bfe6c82a2aaaee276f752cdadf3a9"><div class="ttname"><a href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1cade7bfe6c82a2aaaee276f752cdadf3a9">white</a></div><div class="ttdeci">@ white</div><div class="ttdoc">Белый цвет</div><div class="ttdef"><b>Definition</b> cube_base.h:16</div></div>
+<div class="ttc" id="acube__base_8h_html_ab87bacfdad76e61b9412d7124be44c1cadfae35394ef2ad547edb9abfc391cab4"><div class="ttname"><a href="cube__base_8h.html#ab87bacfdad76e61b9412d7124be44c1cadfae35394ef2ad547edb9abfc391cab4">undef</a></div><div class="ttdeci">@ undef</div><div class="ttdoc">Неопределенный цвет</div><div class="ttdef"><b>Definition</b> cube_base.h:22</div></div>
+<div class="ttc" id="astructcubie_html"><div class="ttname"><a href="structcubie.html">cubie</a></div><div class="ttdoc">Базовая структура для представления маленького кубика в составе большого кубика Рубика.</div><div class="ttdef"><b>Definition</b> cube_base.h:44</div></div>
+<div class="ttc" id="astructcubie_html_a058cd5ad436e4e8e98f58bfc9cb53187"><div class="ttname"><a href="structcubie.html#a058cd5ad436e4e8e98f58bfc9cb53187">cubie::rotateX</a></div><div class="ttdeci">virtual void rotateX()=0</div><div class="ttdoc">Поворот на плоскости Y0Z.</div></div>
+<div class="ttc" id="astructcubie_html_a103c93a97768900a90e8e6716e8be4af"><div class="ttname"><a href="structcubie.html#a103c93a97768900a90e8e6716e8be4af">cubie::setColor</a></div><div class="ttdeci">virtual void setColor(position pos, int color)=0</div><div class="ttdoc">Устанавливает цвет на указанной позиции.</div></div>
+<div class="ttc" id="astructcubie_html_a119ca3aede5e790bc0f5b3b8c485fe3a"><div class="ttname"><a href="structcubie.html#a119ca3aede5e790bc0f5b3b8c485fe3a">cubie::rotateZ</a></div><div class="ttdeci">virtual void rotateZ()=0</div><div class="ttdoc">Поворот на плоскости X0Y.</div></div>
+<div class="ttc" id="astructcubie_html_abbf1a255720b89bee984c3bbf7904cc7"><div class="ttname"><a href="structcubie.html#abbf1a255720b89bee984c3bbf7904cc7">cubie::rotateY</a></div><div class="ttdeci">virtual void rotateY()=0</div><div class="ttdoc">Поворот на плоскости X0Z.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
