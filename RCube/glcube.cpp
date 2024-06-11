@@ -290,3 +290,86 @@ void GlCube::fsaveCube(std::ofstream &fo) {
 std::vector<std::vector<int>>& GlCube::saved(){
     return f_format;
 }
+void GlCube::rotate90(int pos, int sign) {
+    int x,y,z;
+    slice.resize(3);
+    for (int k = 0; k < 3; ++k) slice[k].resize(3);
+    if (sign != 1 && sign != -1 && sign != 2)
+        throw std::runtime_error("Rotation error");
+    if (sign == -1)
+        sign = 3;
+
+    while(sign--){
+        if (pos == up  pos == down){
+            y = pos==up ? 0 :2;
+
+            for (int i = 0; i < 3; ++i)
+                for (int j = 0; j < 3; ++j)
+                    slice[i][j] = cube[2-j][y][i];
+
+            for (int i = 0; i <3 ; ++i)
+                for (int j = 0; j < 3; ++j){
+                    slice[i][j].rotateY();
+                    cube[i][y][j] = slice[i][j];
+                }
+        } else if(pos==front  pos == back){
+            z = pos==front ? 0 :2;
+
+            for (int i = 0; i < 3; ++i)
+                for (int j = 0; j < 3; ++j)
+                    slice[i][j] = cube[z][2-j][i];
+
+            for (int i = 0; i < 3; ++i)
+                for (int j = 0; j < 3; ++j){
+                    slice[i][j].rotateZ();
+                    cube[z][i][j] = slice[i][j];
+                }
+        } else if(pos==left  pos==right){
+            x = pos==left ? 0 :2;
+
+            for( int i = 0; i<3; ++i)
+                for( int j = 0; j<3; ++j)
+                    slice[i][j] = cube[i][2-j][x];
+
+            for (int i = 0; i < 3; ++i)
+                for (int j = 0; j < 3; ++j){
+                    slice[i][j].rotateX();
+                    cube[j][i][x] = slice[i][j];
+                }
+        }
+    }
+}
+
+void GlCube::Rotate(int idx, int angle, int angle90) {
+    // мы пытаемся покрутить грань с номером idx
+    // значит нужно проверить что другая грань уже не крутится
+
+    angle*=clock;
+    if (current == -1  current == idx)
+    {
+        // обновляем поворот
+        rotate[idx] += angle;
+
+        if (rotate[idx] % (angle90 == 1?90:180) != 0)
+        {
+            current = idx;
+        }
+        else if(angle90==1)
+        {
+
+            // если угол стал кратным 90, то поварачиваем на массиве
+            if ((rotate[idx] < 0) ^ (current == 2 || current == 3))
+                rotate90(idx, 1);
+            else
+                rotate90(idx, -1);
+            rotate[idx] = 0;
+            current = -1;
+            i++;
+        } else{
+            rotate90(idx, 2);
+            rotate[idx] = 0;
+            current = -1;
+            i++;
+        }
+    }
+}
