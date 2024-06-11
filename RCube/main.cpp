@@ -158,9 +158,8 @@ void keys(unsigned char key, int, int)
         console.basic_ios<char>::rdbuf(std::cout.rdbuf());
         cube.fsaveCube(console);
         console.close();
-    }else if(key == 'a') {
-        std::cout << cube.i;
-        cube.saveCube();
+    }else if(key == 'a') { //проверка куба
+       /* cube.saveCube();
         solver a(cube.saved());
         std::ifstream storage("storage.txt");
 
@@ -183,8 +182,12 @@ void keys(unsigned char key, int, int)
                     display();
                 }
             }
-        }
-
+        }*/
+        cube.saveCube();
+        solver a(cube.saved());
+    } else if (key == 'i'){
+        algorithm ab;
+        ab.solveCube(cube.saved());
     }
 }
 

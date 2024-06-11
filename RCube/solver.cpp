@@ -3,6 +3,9 @@
 //
 
 #include "solver.h"
+#include <python3.11/Python.h>
+#include <string>
+#include <fstream>
 
 /**********************************************************************
  *
@@ -253,3 +256,70 @@ void solver::mainSolve(int argc, std::vector<std::string> argv)
     }
     storage.close();
 }
+
+void algorithm::solveCube(std::vector<std::vector<int>> & cubeFormat) {
+    std::ofstream out ("algorithm.txt");
+    std::vector<char> colorMap = {'U', 'R', 'B', 'L', 'F', 'D'};
+
+    if (cubeFormat.size() != 6 || cubeFormat[0].size() != 9) {
+        throw std::invalid_argument("Invalid cube state format");
+    }
+
+    std::string cubeState;
+
+    // Преобразуем состояние в строку
+    for (const auto& face : cubeFormat) {
+        for (int color : face) {
+            cubeState += colorMap[color];
+        }
+    }
+    Py_Initialize();
+
+    // Импортируем модуль kociemba
+    PyObject* pName = PyUnicode_DecodeFSDefault("kociemba");
+    PyObject* pModule = PyImport_Import(pName);
+    Py_DECREF(pName);
+
+    if (pModule != nullptr) {
+        // Получаем ссылку на функцию solve из модуля kociemba
+        PyObject* pFunc = PyObject_GetAttrString(pModule, "solve");
+
+        if (pFunc && PyCallable_Check(pFunc)) {
+            // Подготавливаем аргументы для функции solve
+            PyObject* pArgs = PyTuple_Pack(1, PyUnicode_FromString(cubeState.c_str()));
+
+            // Вызываем функцию solve
+            PyObject* pValue = PyObject_CallObject(pFunc, pArgs);
+            Py_DECREF(pArgs);
+
+            if (pValue != nullptr) {
+                // Получаем результат и преобразуем его в std::string
+                std::string result = PyUnicode_AsUTF8(pValue);
+                Py_DECREF(pValue);
+                Py_DECREF(pFunc);
+                Py_DECREF(pModule);
+                // Завершаем работу интерпретатора Python
+                Py_Finalize();
+                out << result;
+            } else {
+                Py_DECREF(pFunc);
+                Py_DECREF(pModule);
+                PyErr_Print();
+                Py_Finalize();
+                throw std::runtime_error("Failed to call function solve");
+            }
+        } else {
+            if (PyErr_Occurred())
+                PyErr_Print();
+            Py_DECREF(pModule);
+            Py_Finalize();
+            throw std::runtime_error("Cannot find function solve");
+        }
+    } else {
+        PyErr_Print();
+        Py_Finalize();
+        throw std::runtime_error("Failed to load kociemba module");
+    }
+
+}
+
