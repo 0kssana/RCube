@@ -1,9 +1,11 @@
 //
-// Created by oksana on mew/mew/24.
+// Created by oksana on 4/3/24.
 //
 #include "glcube.h"
 #include <iostream>
 #include <cstring>
+
+
 
 //--CUBIE--
 std::vector<std::vector<int>> d_state = {
@@ -15,6 +17,9 @@ std::vector<std::vector<int>> d_state = {
         {2,2,2,2,2,2,2,2,2},
 };
 
+Glcubie::Glcubie() {
+    std::fill(color, color + 6, undef);
+}
 void Glcubie::setColor(position newPos, int newColor){
     color[newPos] = newColor;
 }
@@ -290,6 +295,7 @@ void GlCube::fsaveCube(std::ofstream &fo) {
 std::vector<std::vector<int>>& GlCube::saved(){
     return f_format;
 }
+
 void GlCube::rotate90(int pos, int sign) {
     int x,y,z;
     slice.resize(3);
@@ -300,7 +306,7 @@ void GlCube::rotate90(int pos, int sign) {
         sign = 3;
 
     while(sign--){
-        if (pos == up  pos == down){
+        if (pos == up || pos == down){
             y = pos==up ? 0 :2;
 
             for (int i = 0; i < 3; ++i)
@@ -312,7 +318,7 @@ void GlCube::rotate90(int pos, int sign) {
                     slice[i][j].rotateY();
                     cube[i][y][j] = slice[i][j];
                 }
-        } else if(pos==front  pos == back){
+        } else if(pos==front || pos == back){
             z = pos==front ? 0 :2;
 
             for (int i = 0; i < 3; ++i)
@@ -324,7 +330,7 @@ void GlCube::rotate90(int pos, int sign) {
                     slice[i][j].rotateZ();
                     cube[z][i][j] = slice[i][j];
                 }
-        } else if(pos==left  pos==right){
+        } else if(pos==left || pos==right){
             x = pos==left ? 0 :2;
 
             for( int i = 0; i<3; ++i)
@@ -345,7 +351,7 @@ void GlCube::Rotate(int idx, int angle, int angle90) {
     // значит нужно проверить что другая грань уже не крутится
 
     angle*=clock;
-    if (current == -1  current == idx)
+    if (current == -1 || current == idx)
     {
         // обновляем поворот
         rotate[idx] += angle;
@@ -372,4 +378,8 @@ void GlCube::Rotate(int idx, int angle, int angle90) {
             i++;
         }
     }
+}
+
+void GlCube::changeDir() {
+    clock*=(-1);
 }
