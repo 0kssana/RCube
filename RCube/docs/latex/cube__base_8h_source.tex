@@ -1,0 +1,56 @@
+\doxysection{cube\+\_\+base.\+h}
+\hypertarget{cube__base_8h_source}{}\label{cube__base_8h_source}\mbox{\hyperlink{cube__base_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1cade7bfe6c82a2aaaee276f752cdadf3a9}{white}}\ =\ 0,\ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1caace9033470c7bfe9523c814271251908}{red}}\ =\ 1,\ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1ca8f5fa6b484ac7e2a97943d915cf224e2}{blue}}\ =\ 2,\ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1ca6aa25890c44e0aac424e56338abe47ca}{green}}\ =\ 3,\ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1cab31edea3fab8c488c7a8f78545e7f5a9}{yellow}}\ =\ 4,\ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1caa2b3d8856786dbe594751820bc1ff2e5}{orange}}\ =\ 5,\ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{cube__base_8h_ab87bacfdad76e61b9412d7124be44c1cadfae35394ef2ad547edb9abfc391cab4}{undef}}\ =\ 6,\ \ \ \ }
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9}{position}}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9ab30562d2871f1a5b7d220569f54ccceb}{front}},\ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9aa0cf137e48905c39b94f23a05b14e7c9}{back}},\ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9aebc281bf093563220c2270ba57dedfce}{up}},\ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9a00156fc42b17a87d0746d97b42caf296}{down}},\ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9ab0ac36b187aa60c167ffcead3d5a03c0}{left}},\ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9af763d610923b0c4614e8ecd65212666a}{right}},\ \ }
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{extern}\ std::vector<std::vector<int>>\ \mbox{\hyperlink{cube__base_8h_aa3af272eb34a507b4bbb3e7fbe690b23}{d\_state}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcubie}{cubie}}\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structcubie_a103c93a97768900a90e8e6716e8be4af}{setColor}}(\mbox{\hyperlink{cube__base_8h_a7130b1618285588513fd1ff97884b9d9}{position}}\ pos,\ \textcolor{keywordtype}{int}\ color)\ =\ 0;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structcubie_a119ca3aede5e790bc0f5b3b8c485fe3a}{rotateZ}}()\ =\ 0;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structcubie_abbf1a255720b89bee984c3bbf7904cc7}{rotateY}}()\ =\ 0;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structcubie_a058cd5ad436e4e8e98f58bfc9cb53187}{rotateX}}()\ =\ 0;}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cube}{Cube}}\ \{}
+\DoxyCodeLine{00073\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_aca708afb25d1ff5c9d0a612507bf9cfa}{setCube}}(\textcolor{keyword}{const}\ std::vector<std::vector<int>>\&\ state)\ =\ 0;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_ac1f76e8310d93fe5c44b5be82f16866c}{saveCube}}()\ =\ 0;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_ad12845ff0a2d5ab62fab0ff8b2c365ed}{fsetCube}}(std::ifstream\&\ in)\ =\ 0;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a14a5a3a04431e24fd006c6d50eaee3b9}{fsaveCube}}(std::ofstream\&\ out)\ =\ 0;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_afff107e65313f0775fbe6bee3af84570}{rotate90}}(\textcolor{keywordtype}{int}\ side,\ \textcolor{keywordtype}{int}\ direction)\ =\ 0;}
+\DoxyCodeLine{00105\ \};}
+
+\end{DoxyCode}

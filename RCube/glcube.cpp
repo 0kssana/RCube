@@ -1,6 +1,9 @@
-//
-// Created by oksana on 4/3/24.
-//
+/**
+ * \file glcube.cpp
+ * \brief Файл, устанавливающий состояние, расположение и отображение кубика.
+ *
+*/
+
 #include "glcube.h"
 #include <iostream>
 #include <cstring>
@@ -8,23 +11,34 @@
 
 
 //--CUBIE--
+/**
+ * \brief Начальное состояние кубика.
+ */
 std::vector<std::vector<int>> d_state = {
-        {0,0,0,0,0,0,0,0,0}, //white
-        {4,4,4,4,4,4,4,4,4}, //yellow
-        {1,1,1,1,1,1,1,1,1}, //red
-        {5,5,5,5,5,5,5,5,5}, //oringe
-        {3,3,3,3,3,3,3,3,3}, //green
-        {2,2,2,2,2,2,2,2,2}, //purple
+        {0,0,0,0,0,0,0,0,0},
+        {4,4,4,4,4,4,4,4,4},
+        {1,1,1,1,1,1,1,1,1},
+        {5,5,5,5,5,5,5,5,5},
+        {3,3,3,3,3,3,3,3,3},
+        {2,2,2,2,2,2,2,2,2},
 };
 
 Glcubie::Glcubie() {
     std::fill(color, color + 6, undef);
 }
+
+/**
+ * \brief Устанавливает цвет на указанной позиции.
+ * \param[in] newPos Позиция на кубике.
+ * \param[in] newColor Новый цвет.
+ */
 void Glcubie::setColor(position newPos, int newColor){
     color[newPos] = newColor;
 }
 
-// поворот на плоскости X0Y
+/**
+ * \brief Поворот кубика на плоскости X0Y.
+ */
 void Glcubie::rotateZ()
 {
     int tmp = color[right];
@@ -34,7 +48,9 @@ void Glcubie::rotateZ()
     color[down] = tmp;
 }
 
-// поворот на плоскости X0Z
+/**
+ * \brief Поворот кубика на плоскости X0Z.
+ */
 void Glcubie::rotateY()
 {
     int tmp = color[right];
@@ -44,7 +60,9 @@ void Glcubie::rotateY()
     color[back] = tmp;
 }
 
-// поворот на плоскости Y0Z
+/**
+ * \brief Поворот кубика на плоскости Y0Z.
+ */
 void Glcubie::rotateX()
 {
     int tmp = color[back];
@@ -54,6 +72,10 @@ void Glcubie::rotateX()
     color[down] = tmp;
 }
 
+/**
+ * \brief Устанавливает цвет для указанной позиции.
+ * \param[in] pos Позиция на кубике.
+ */
 void Glcubie::setColor(position pos) {
 
     static const GLfloat colors[7][3] =
@@ -71,6 +93,10 @@ void Glcubie::setColor(position pos) {
 
 }
 
+/**
+ * \brief Отрисовывает маленький кубик.
+ * \param[in] type Тип примитива OpenGL для отрисовки.
+ */
 void Glcubie::drawCubie(GLenum type = GL_QUADS) {
     glPushMatrix();
     glBegin(type);
@@ -121,6 +147,12 @@ void Glcubie::drawCubie(GLenum type = GL_QUADS) {
     glPopMatrix();
 }
 
+/**
+ * \brief Отрисовывает маленький кубик с заданными координатами.
+ * \param[in] x Координата X.
+ * \param[in] y Координата Y.
+ * \param[in] z Координата Z.
+ */
 void Glcubie::drawCubie(double x, double y, double z) {
     glPushMatrix();
     glTranslated(x, y, z);
@@ -130,6 +162,11 @@ void Glcubie::drawCubie(double x, double y, double z) {
 
 //---CUBE---
 //PRIVATE
+
+/**
+ * \brief Конструктор куба.
+ * \param[in] s Размер куба.
+ */
 GlCube::GlCube(float s) {
     cube.resize(3);
     for (int i = 0; i<3;i++){
@@ -151,6 +188,12 @@ GlCube::GlCube(float s) {
 }
 
 //HELPERS
+
+/**
+ * \brief Устанавливает состояние кубика.
+ * \param[in] newCube Новое состояние кубика.
+ * \throw std::length_error Если размер нового состояния некорректен.
+ */
 void GlCube::setCube(const std::vector<std::vector<int> > &newCube) {
     std::cout<<newCube.size()<<std::endl;
     if (newCube.size()!=6)
@@ -207,6 +250,9 @@ void GlCube::setCube(const std::vector<std::vector<int> > &newCube) {
     }
 }
 
+/**
+ * \brief Сохраняет текущее состояние кубика.
+ */
 void GlCube::saveCube() {
     f_format.resize(6);
     for (int i = 0; i < 6; ++i)
@@ -245,6 +291,13 @@ void GlCube::saveCube() {
 
 //PUBLIC
 //SET & SAVING CUBE FROM/IN FILE
+
+
+/**
+ * \brief Устанавливает состояние кубика из файла.
+ * \param[in] fin Входной файловый поток.
+ * \throw std::runtime_error Если формат файла некорректен.
+ */
 void GlCube::fsetCube(std::ifstream &fin) {
     std::vector<std::vector<int>> res(6);
     for (int i = 0; i < 6; ++i) {
@@ -277,6 +330,10 @@ void GlCube::fsetCube(std::ifstream &fin) {
     std::cout<<std::endl;
 }
 
+/**
+ * \brief Сохраняет состояние кубика в файл.
+ * \param[in] fo Выходной файловый поток.
+ */
 void GlCube::fsaveCube(std::ofstream &fo) {
     saveCube();
 
@@ -292,10 +349,20 @@ void GlCube::fsaveCube(std::ofstream &fo) {
     }
 }
 
+/**
+ * \brief Возвращает текущее сохраненное состояние кубика.
+ * \return Ссылка на вектор состояния.
+ */
 std::vector<std::vector<int>>& GlCube::saved(){
     return f_format;
 }
 
+/**
+ * \brief Поворачивает грань кубика на 90 градусов.
+ * \param[in] pos Позиция грани.
+ * \param[in] sign Знак направления поворота.
+ * \throw std::runtime_error Если значение знака некорректно.
+ */
 void GlCube::rotate90(int pos, int sign) {
     int x,y,z;
     slice.resize(3);
@@ -346,6 +413,12 @@ void GlCube::rotate90(int pos, int sign) {
     }
 }
 
+/**
+ * \brief Поворачивает грань кубика на заданный угол.
+ * \param[in] idx Индекс грани.
+ * \param[in] angle Угол поворота.
+ * \param[in] angle90 Флаг, указывающий, что поворот должен быть на 90 градусов.
+ */
 void GlCube::Rotate(int idx, int angle, int angle90) {
     // мы пытаемся покрутить грань с номером idx
     // значит нужно проверить что другая грань уже не крутится
@@ -380,11 +453,23 @@ void GlCube::Rotate(int idx, int angle, int angle90) {
     }
 }
 
+/**
+ * \brief Изменяет направление вращения кубика.
+ *
+ * Метод меняет направление вращения кубика, умножая текущее направление на -1.
+ */
 void GlCube::changeDir() {
     clock*=(-1);
 }
 
 //DRAWING
+
+/**
+ * \brief Отрисовывает кубик Rubik's Cube.
+ *
+ * Этот метод рисует кубик Rubik's Cube, включая повернутую грань, если таковая имеется.
+ * Размер кубика рассчитывается по размеру граней.
+ */
 void GlCube::drawCube() {
     const double K = 0.65;
     // рисуем корпус - это просто куб черного цвета, размер которого равен K*size
@@ -462,6 +547,11 @@ void GlCube::drawCube() {
                     cube[i][j][k].drawCubie(size / 3. * k, size / 3. * (2-j), size / 3. * (2-i));
 }
 
+/**
+ * \brief Сбрасывает кубик в начальное состояние.
+ *
+ * Этот метод сбрасывает кубик в начальное состояние, устанавливая его в исходную конфигурацию.
+ */
 void GlCube::reset() {
     setCube(f_format);
 }

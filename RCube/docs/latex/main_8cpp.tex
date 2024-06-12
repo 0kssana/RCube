@@ -1,0 +1,240 @@
+\doxysection{Файл main.\+cpp}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+Главный файл программы.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}glcube.\+h"{}}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8cpp_af4a1f8e6131f8feced1f751879e130cf}\label{main_8cpp_af4a1f8e6131f8feced1f751879e130cf} 
+\#define {\bfseries CUBE\+\_\+\+SIZE}~13
+\item 
+\Hypertarget{main_8cpp_a599217205dc3092c26567a2bd868ef3a}\label{main_8cpp_a599217205dc3092c26567a2bd868ef3a} 
+\#define {\bfseries TIMER}~3
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \mbox{\hyperlink{main_8cpp_a32a49883f1090eeb7da73770ea94a1f0}{seq}} (0)
+\item 
+void \mbox{\hyperlink{main_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}{display}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_acc1ffe65e6869931318610cae7210078}{reshape}} (int w, int h)
+\item 
+void \mbox{\hyperlink{main_8cpp_a02fd73d861ef2e4aabb38c0c9ff82947}{init}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_a4bb3bffbeb257c96469af4951bd2d899}{special\+Keys}} (int key, int, int)
+\item 
+void \mbox{\hyperlink{main_8cpp_ae7626cd260d63b91acac67d2a7815800}{keys}} (unsigned char key, int, int)
+\item 
+void \mbox{\hyperlink{main_8cpp_a6dd3279669269ffbddd21cdaa7fd9edd}{mouse}} (int key, int state, int, int)
+\item 
+void \mbox{\hyperlink{main_8cpp_a60ebef228b6633754a3122edd12a5473}{timer}} (int)
+\item 
+int \mbox{\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+GLfloat \mbox{\hyperlink{main_8cpp_a27a8dec8f98a2431080b7beffbe507d3}{light\+Pos}} \mbox{[}$\,$\mbox{]} = \{ 0, 100, 200, 0 \}
+\item 
+int \mbox{\hyperlink{main_8cpp_a7187c23e88f11649c7550148a8fcf68b}{x\+Rot}} = 24
+\item 
+\Hypertarget{main_8cpp_ab06df483f7f6e6c1dc4475db8ba88feb}\label{main_8cpp_ab06df483f7f6e6c1dc4475db8ba88feb} 
+int {\bfseries y\+Rot} = -\/34
+\item 
+\Hypertarget{main_8cpp_a72ea8b2a33837b71213275d1428d462d}\label{main_8cpp_a72ea8b2a33837b71213275d1428d462d} 
+int {\bfseries z\+Rot} = 0
+\item 
+double \mbox{\hyperlink{main_8cpp_a28eba0130483bb426deb3b15820d8eaa}{translateZ}} = -\/35.\+0
+\item 
+\mbox{\hyperlink{class_gl_cube}{Gl\+Cube}} \mbox{\hyperlink{main_8cpp_a06c888200d0012bcc454c889c9593bd9}{cube}} (CUBE\+\_\+\+SIZE)
+\item 
+int \mbox{\hyperlink{main_8cpp_a44b115a66505e0391c6ffd042e9e470f}{timer\+On}} = 0
+\item 
+bool \mbox{\hyperlink{main_8cpp_a9611edf5c67b72bbd6c76f46dd71bea3}{solveB}} = false
+\item 
+std\+::string \mbox{\hyperlink{main_8cpp_a23825d75bfa8e6f940ad40ef8b3f1899}{fi}}
+\item 
+\Hypertarget{main_8cpp_a31274f81a17e2a5c6402bc0139718771}\label{main_8cpp_a31274f81a17e2a5c6402bc0139718771} 
+std\+::string {\bfseries fo}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Главный файл программы. 
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{main_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}\label{main_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269} 
+\index{main.cpp@{main.cpp}!display@{display}}
+\index{display@{display}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Функция отрисовки отражаемого на экране. \Hypertarget{main_8cpp_a02fd73d861ef2e4aabb38c0c9ff82947}\label{main_8cpp_a02fd73d861ef2e4aabb38c0c9ff82947} 
+\index{main.cpp@{main.cpp}!init@{init}}
+\index{init@{init}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Функция инициализации. \Hypertarget{main_8cpp_ae7626cd260d63b91acac67d2a7815800}\label{main_8cpp_ae7626cd260d63b91acac67d2a7815800} 
+\index{main.cpp@{main.cpp}!keys@{keys}}
+\index{keys@{keys}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{keys()}{keys()}}
+{\footnotesize\ttfamily void keys (\begin{DoxyParamCaption}\item[{unsigned char}]{key,  }\item[{int}]{,  }\item[{int}]{ }\end{DoxyParamCaption})}
+
+Функция обработки нажатия клавиш.
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em key} & Код нажатой клавиши. \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & Координата x указателя мыши в момент нажатия клавиши. \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Координата y указателя мыши в момент нажатия клавиши. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+Главная функция.
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em argc} & Количество аргументов командной строки. \\
+\hline
+\mbox{\texttt{ in}}  & {\em argv} & Массив аргументов командной строки. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Код завершения программы. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a6dd3279669269ffbddd21cdaa7fd9edd}\label{main_8cpp_a6dd3279669269ffbddd21cdaa7fd9edd} 
+\index{main.cpp@{main.cpp}!mouse@{mouse}}
+\index{mouse@{mouse}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{mouse()}{mouse()}}
+{\footnotesize\ttfamily void mouse (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{int}]{state,  }\item[{int}]{,  }\item[{int}]{ }\end{DoxyParamCaption})}
+
+Функция обработки нажатия кнопок мыши.
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em key} & Код нажатой кнопки мыши. \\
+\hline
+\mbox{\texttt{ in}}  & {\em state} & Состояние кнопки (нажата или отпущена). \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & Координата x указателя мыши в момент нажатия кнопки. \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Координата y указателя мыши в момент нажатия кнопки. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_acc1ffe65e6869931318610cae7210078}\label{main_8cpp_acc1ffe65e6869931318610cae7210078} 
+\index{main.cpp@{main.cpp}!reshape@{reshape}}
+\index{reshape@{reshape}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{reshape()}{reshape()}}
+{\footnotesize\ttfamily void reshape (\begin{DoxyParamCaption}\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+Функция изменения размеров окна.
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em w} & Новая ширина окна. \\
+\hline
+\mbox{\texttt{ in}}  & {\em h} & Новая высота окна. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_a32a49883f1090eeb7da73770ea94a1f0}\label{main_8cpp_a32a49883f1090eeb7da73770ea94a1f0} 
+\index{main.cpp@{main.cpp}!seq@{seq}}
+\index{seq@{seq}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{seq()}{seq()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ seq (\begin{DoxyParamCaption}\item[{0}]{ }\end{DoxyParamCaption})}
+
+Последовательность вращений для решения кубика. \Hypertarget{main_8cpp_a4bb3bffbeb257c96469af4951bd2d899}\label{main_8cpp_a4bb3bffbeb257c96469af4951bd2d899} 
+\index{main.cpp@{main.cpp}!specialKeys@{specialKeys}}
+\index{specialKeys@{specialKeys}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{specialKeys()}{specialKeys()}}
+{\footnotesize\ttfamily void special\+Keys (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{int}]{,  }\item[{int}]{ }\end{DoxyParamCaption})}
+
+Функция обработки специальных клавиш.
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em key} & Код нажатой клавиши. \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & Координата x указателя мыши в момент нажатия клавиши. \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Координата y указателя мыши в момент нажатия клавиши. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_a60ebef228b6633754a3122edd12a5473}\label{main_8cpp_a60ebef228b6633754a3122edd12a5473} 
+\index{main.cpp@{main.cpp}!timer@{timer}}
+\index{timer@{timer}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{timer()}{timer()}}
+{\footnotesize\ttfamily void timer (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})}
+
+Таймерная функция для автоматического вращения кубика.
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em value} & Не используется, но необходим для вызова функции. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Переменные}
+\Hypertarget{main_8cpp_a06c888200d0012bcc454c889c9593bd9}\label{main_8cpp_a06c888200d0012bcc454c889c9593bd9} 
+\index{main.cpp@{main.cpp}!cube@{cube}}
+\index{cube@{cube}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cube}{cube}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_gl_cube}{Gl\+Cube}} cube(CUBE\+\_\+\+SIZE) (\begin{DoxyParamCaption}\item[{CUBE\+\_\+\+SIZE}]{ }\end{DoxyParamCaption})}
+
+Кубик-\/рубик. \Hypertarget{main_8cpp_a23825d75bfa8e6f940ad40ef8b3f1899}\label{main_8cpp_a23825d75bfa8e6f940ad40ef8b3f1899} 
+\index{main.cpp@{main.cpp}!fi@{fi}}
+\index{fi@{fi}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{fi}{fi}}
+{\footnotesize\ttfamily std\+::string fi}
+
+Входной и выходной файлы. \Hypertarget{main_8cpp_a27a8dec8f98a2431080b7beffbe507d3}\label{main_8cpp_a27a8dec8f98a2431080b7beffbe507d3} 
+\index{main.cpp@{main.cpp}!lightPos@{lightPos}}
+\index{lightPos@{lightPos}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{lightPos}{lightPos}}
+{\footnotesize\ttfamily GLfloat light\+Pos\mbox{[}$\,$\mbox{]} = \{ 0, 100, 200, 0 \}}
+
+Координаты источника света. \Hypertarget{main_8cpp_a9611edf5c67b72bbd6c76f46dd71bea3}\label{main_8cpp_a9611edf5c67b72bbd6c76f46dd71bea3} 
+\index{main.cpp@{main.cpp}!solveB@{solveB}}
+\index{solveB@{solveB}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{solveB}{solveB}}
+{\footnotesize\ttfamily bool solveB = false}
+
+Флаг того, решается ли кубик. \Hypertarget{main_8cpp_a44b115a66505e0391c6ffd042e9e470f}\label{main_8cpp_a44b115a66505e0391c6ffd042e9e470f} 
+\index{main.cpp@{main.cpp}!timerOn@{timerOn}}
+\index{timerOn@{timerOn}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{timerOn}{timerOn}}
+{\footnotesize\ttfamily int timer\+On = 0}
+
+Флаг того, крутится куб сам, или нет (будет переключаться правой кнопкой мыши). \Hypertarget{main_8cpp_a28eba0130483bb426deb3b15820d8eaa}\label{main_8cpp_a28eba0130483bb426deb3b15820d8eaa} 
+\index{main.cpp@{main.cpp}!translateZ@{translateZ}}
+\index{translateZ@{translateZ}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{translateZ}{translateZ}}
+{\footnotesize\ttfamily double translateZ = -\/35.\+0}
+
+Отдаление. \Hypertarget{main_8cpp_a7187c23e88f11649c7550148a8fcf68b}\label{main_8cpp_a7187c23e88f11649c7550148a8fcf68b} 
+\index{main.cpp@{main.cpp}!xRot@{xRot}}
+\index{xRot@{xRot}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{xRot}{xRot}}
+{\footnotesize\ttfamily int x\+Rot = 24}
+
+Проекции угла поворота на оси. 

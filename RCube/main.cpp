@@ -1,6 +1,9 @@
+/**
+ * \file main.cpp
+ * \brief Главный файл программы.
+ */
 #include <iostream>
 #include "glcube.h"
-#include "solver.h"
 #include <ctime>
 #include <cstdlib>
 #include <algorithm>
@@ -8,20 +11,51 @@
 
 #define CUBE_SIZE 13
 #define TIMER 3
-// координаты источника света
+
+
+/**
+ * Координаты источника света.
+ */
 GLfloat lightPos[] = { 0, 100, 200, 0 };
-// проекции угла поворота на оси
+
+/**
+ * Проекции угла поворота на оси.
+ */
 int xRot = 24, yRot = -34, zRot = 0;
-// отдаление
+
+/**
+ * Отдаление.
+ */
 double translateZ = -35.0;
-// кубик-рубик
+
+/**
+ * Кубик-рубик.
+ */
 GlCube cube(CUBE_SIZE);
-// флаг того, крутится куб сам, или нет (будет переключаться правой кнопкой мыши)
+
+/**
+ * Флаг того, крутится куб сам, или нет (будет переключаться правой кнопкой мыши).
+ */
 int timerOn = 0;
+
+/**
+ * Флаг того, решается ли кубик.
+ */
 bool solveB = false;
+
+/**
+ * Последовательность вращений для решения кубика.
+ */
 std::vector<std::pair<int,int>> seq(0);
+
+/**
+ * Входной и выходной файлы.
+ */
 std::string fi,fo;
 
+/**
+ * Функция отрисовки отражаемого на экране.
+ */
 void display()
 {
     glPushMatrix();
@@ -37,6 +71,12 @@ void display()
     glutSwapBuffers();
 }
 
+/**
+ * Функция изменения размеров окна.
+ * 
+ * \param[in] w Новая ширина окна.
+ * \param[in] h Новая высота окна.
+ */
 void reshape(int w, int h)
 {
     glViewport(0, 0, w, h);
@@ -48,6 +88,9 @@ void reshape(int w, int h)
     glLoadIdentity();
 }
 
+/**
+ * Функция инициализации.
+ */
 void init()
 {
     glClearColor(0.1, 0.7, 0.6, 1.5);
@@ -70,6 +113,13 @@ void init()
     glEnable(GL_LIGHTING);
 }
 
+/**
+ * Функция обработки специальных клавиш.
+ * 
+ * \param[in] key Код нажатой клавиши.
+ * \param[in] x Координата x указателя мыши в момент нажатия клавиши.
+ * \param[in] y Координата y указателя мыши в момент нажатия клавиши.
+ */
 void specialKeys(int key, int, int)
 {
     // клавиши влево/вправо вращают по Y
@@ -128,6 +178,30 @@ void specialKeys(int key, int, int)
     if (key == GLUT_KEY_F2)
     {
         solveB = 1-solveB;
+        /*cube.saveCube();
+        solver a(cube.saved());
+        std::ifstream storage("storage.txt");*/
+
+        /*while(!storage.eof()) {
+            unsigned char rot = storage.get();
+            unsigned char tmp = storage.get();
+            int qty = tmp-'0';
+            int qty0 = rot-'0';
+            seq.emplace_back(qty0,qty);
+            *//*if (rot == 'F') {
+                cube.clock=-1;
+                for (int i = 0; i < qty; i++) {
+                    cube.Rotate(front, 3);
+                    display();
+                }
+                cube.clock=1;
+            } else if (rot == 'B') {
+                for (int i = 0; i < qty; i++) {
+                    cube.Rotate(back, 3);
+                    display();
+                }
+            }*//*
+        }*/
         std::reverse(seq.begin(), seq.end());
         cube.clock=-1;
         cube.i = 0;
@@ -136,6 +210,13 @@ void specialKeys(int key, int, int)
     }
 }
 
+/**
+ * Функция обработки нажатия клавиш.
+ * 
+ * \param[in] key Код нажатой клавиши.
+ * \param[in] x Координата x указателя мыши в момент нажатия клавиши.
+ * \param[in] y Координата y указателя мыши в момент нажатия клавиши.
+ */
 void keys(unsigned char key, int, int)
 {
     // если нажали клавишу от 0 до 5 - начинаем поворот на 3 градуса
@@ -158,36 +239,17 @@ void keys(unsigned char key, int, int)
         console.basic_ios<char>::rdbuf(std::cout.rdbuf());
         cube.fsaveCube(console);
         console.close();
-    }else if(key == 'a') {
-        std::cout << cube.i;
-        cube.saveCube();
-        solver a(cube.saved());
-        std::ifstream storage("storage.txt");
-
-        while(!storage.eof()) {
-            unsigned char rot = storage.get();
-            unsigned char tmp = storage.get();
-            int qty = tmp-'0';
-            int qty0 = rot-'0';
-            seq.emplace_back(qty0,qty);
-            if (rot == 'F') {
-                cube.clock=-1;
-                for (int i = 0; i < qty; i++) {
-                    cube.Rotate(cube.i, 3, 1);
-                    display();
-                }
-                cube.clock=1;
-            } else if (rot == 'B') {
-                for (int i = 0; i < qty; i++) {
-                      cube.Rotate(cube.current, 3, 1);
-                    display();
-                }
-            }
-        }
-
     }
 }
 
+/**
+ * Функция обработки нажатия кнопок мыши.
+ * 
+ * \param[in] key Код нажатой кнопки мыши.
+ * \param[in] state Состояние кнопки (нажата или отпущена).
+ * \param[in] x Координата x указателя мыши в момент нажатия кнопки.
+ * \param[in] y Координата y указателя мыши в момент нажатия кнопки.
+ */
 void mouse(int key, int state, int, int)
 {
     if (key == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
@@ -197,6 +259,11 @@ void mouse(int key, int state, int, int)
     }
 }
 
+/**
+ * Таймерная функция для автоматического вращения кубика.
+ * 
+ * \param[in] value Не используется, но необходим для вызова функции.
+ */
 void timer(int)
 {
     glutTimerFunc(TIMER, timer, 0);
@@ -223,6 +290,13 @@ void timer(int)
     display();
 }
 
+/**
+ * Главная функция.
+ * 
+ * \param[in] argc Количество аргументов командной строки.
+ * \param[in] argv Массив аргументов командной строки.
+ * \return Код завершения программы.
+ */
 int main(int argc, char** argv)
 {
     for (int i = 1; i < argc && i < 6; i+=2) {
