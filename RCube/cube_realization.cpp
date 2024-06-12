@@ -294,10 +294,7 @@ bool Cube::check() {
 }
 
 void Cube::show(std::string file) {
-    if (file.empty()) {
-       file = "Cube.out";
-    }
-    file = file.empty() ?? 
+    file = file.empty() ? "Cube.out" : file;
     ofstream out(file);
     for (int i = 0; i < size; i++) {
         out << "       ";
