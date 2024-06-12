@@ -149,6 +149,7 @@ void Cube::fill_from_the_file(const char *name_of_the_file) {
 
     file.close();
     cout << "reading from the file complited\n";
+    display_f();
 }
 
 bool Cube::has_all_colors() {

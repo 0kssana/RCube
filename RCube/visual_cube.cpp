@@ -193,7 +193,9 @@ void Cube::normalKeys_f(unsigned char key, int x, int y) {
         show_to_concol();
     } else if (key == 'o'){
         show("Cubeout.txt");
-    } else if(key = 'h'){
+    } else if(key == 'h'){
         check_answer_for_cout();
+    } else if (key == 'i') {
+        Cube::fill_from_the_file("cubein.txt");
     }
 }
