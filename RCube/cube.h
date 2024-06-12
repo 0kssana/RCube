@@ -60,7 +60,7 @@ public:
 
     void fill_from_the_file(const char *name_of_the_file);
 
-    void show();
+    void show(std::string file = "");
 
     void show_to_concol();
 
