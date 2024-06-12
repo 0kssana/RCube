@@ -293,8 +293,12 @@ bool Cube::check() {
     return flag and has_all_colors();
 }
 
-void Cube::show() {
-    ofstream out("Cube.out");
+void Cube::show(std::string file) {
+    if (file.empty()) {
+       file = "Cube.out";
+    }
+    file = file.empty() ?? 
+    ofstream out(file);
     for (int i = 0; i < size; i++) {
         out << "       ";
         for (auto col: up[i]) {

@@ -150,5 +150,7 @@ void Cube::normalKeys_f(unsigned char key, int x, int y) {
         check_solved_answer_for_cout();
     } else if (key == 'n') {
         show_to_concol();
+    } else if (key == 'o'){
+        show("Cubeout.txt");
     }
 }
