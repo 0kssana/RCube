@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pragma once
 #include <GL/glut.h>
 #include <vector>
@@ -126,3 +127,5 @@ public:
     void specialKeys_f(int key, int x, int y);
     void normalKeys_f(unsigned char key, int x, int y);
 };
+=======
+>>>>>>> d70b160 (last)
