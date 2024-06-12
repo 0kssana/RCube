@@ -28,6 +28,12 @@ private:
     cubestate id(cubestate);
     int inverse(int);
     cubestate applyMove(int, cubestate);
+    std::string convertCubeState();
 };
 
+class algorithm {
+public:
+    void solveCube(std::vector<std::vector<int>>&);
+
+};
 #endif //RCUBE_SOLVER_H
