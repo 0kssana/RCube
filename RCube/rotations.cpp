@@ -1,7 +1,7 @@
 #include "cube.h"
 #include <unistd.h>
 
-int sleepp = 2;
+int sleepp = 1;
 
 void Cube::right_rotation_90(){
     colors temp_front0 = front[0][2];
