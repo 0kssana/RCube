@@ -14,10 +14,7 @@ void display(){
 }
 void init()
 {
-    glClearColor(0.1, 0.7, 0.6, 1.5);
-    // инициализируем случайные числа
-    srand(time(0));
-
+    glClearColor(0.2,0.2,0.2,1);
     // освещение
     float mat_specular[] = { 0.3, 0.3, 0.3, 0 };
     float diffuseLight[] = { 0.2, 0.2, 0.2, 1 };
@@ -39,8 +36,6 @@ int main(int argc, char* argv[]){
     glutInitWindowSize(800,800);
     glutCreateWindow("Cube");
     init();
-    glEnable(GL_DEPTH_TEST);
-    glClearColor(0.2,0.2,0.2,1);
     glutDisplayFunc(display);
     glutKeyboardFunc(normalKeys);
     glutSpecialFunc(specialKeys);
