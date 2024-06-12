@@ -428,11 +428,11 @@ bool Cube::check_solved() {
 }
 
 void Cube::check_solved_answer_for_cout() {
-    if (check_solved()) cout << "Your cude is right\n";
+    if (check_solved()) cout << "Your cube is right\n";
     else cout << "Ooops, mistake...";
 }
 
 void Cube::check_answer_for_cout() {
-    if (check()) cout << "Your cude is right and has all colers\n";
+    if (check()) cout << "Your cube is right and has all colers\n";
     else cout << "Ooops, mistake...";
 }
