@@ -14,7 +14,7 @@ add_executable(RCube
         RCube/rotations.cpp
         RCube/solver.cpp
         RCube/visual_cube.cpp
-        RCubeTests/MockCube.h)
+)
 
 add_custom_command(TARGET RCube POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
@@ -32,7 +32,7 @@ add_executable(RCube-tests
         RCube/rotations.cpp
         RCube/solver.cpp
         RCube/visual_cube.cpp
-        RCubeTests/MockCube.h)
+)
 
 find_package(GTest REQUIRED)
 

@@ -1,10 +1,11 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+
 #include "doctest/doctest.h"
-#include "RCube/cube.h"  // Включите ваш основной код
+#include "../RCube/cube.h"  // Включите ваш основной код
 
 class CubeTest {
 public:
-    static bool testCheckMethod(Cube& cube) {
+    static bool testCheckMethod(Cube &cube) {
         cube.coloring(cube.left, 2);
         cube.coloring(cube.right, 3);
         cube.coloring(cube.front, 0);
