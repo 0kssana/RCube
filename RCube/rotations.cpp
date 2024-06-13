@@ -3,7 +3,7 @@
 
 int sleepp = 1;
 
-void Cube::right_rotation_90(){
+void Cube::right_rotation_90() {
     colors temp_front0 = front[0][2];
     colors temp_front1 = front[1][2];
     colors temp_front2 = front[2][2];
@@ -25,8 +25,8 @@ void Cube::right_rotation_90(){
     up[2][2] = temp_front2;
 
     colors temp[3][3];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             temp[i][j] = right[i][j];
         }
     }
@@ -47,7 +47,7 @@ void Cube::right_rotation_90(){
     sleep(sleepp);
 }
 
-void Cube::right_rotation_against_90(){
+void Cube::right_rotation_against_90() {
 
     colors temp_front02 = front[0][2];
     colors temp_front12 = front[1][2];
@@ -70,9 +70,9 @@ void Cube::right_rotation_against_90(){
     down[2][2] = temp_front22;
 
     colors temp[3][3];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
-            temp[i][j]  = right[i][j];
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            temp[i][j] = right[i][j];
         }
     }
 
@@ -92,7 +92,7 @@ void Cube::right_rotation_against_90(){
     sleep(sleepp);
 }
 
-void Cube::left_rotation_against_90(){
+void Cube::left_rotation_against_90() {
     colors temp_front0 = front[0][0];
     colors temp_front1 = front[1][0];
     colors temp_front2 = front[2][0];
@@ -114,8 +114,8 @@ void Cube::left_rotation_against_90(){
     up[2][0] = temp_front2;
 
     colors temp[size][size];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             temp[i][j] = left[i][j];
         }
     }
@@ -136,7 +136,7 @@ void Cube::left_rotation_against_90(){
     sleep(sleepp);
 }
 
-void Cube::left_rotation_90(){
+void Cube::left_rotation_90() {
 
     colors temp_front0 = front[0][0];
     colors temp_front1 = front[1][0];
@@ -159,8 +159,8 @@ void Cube::left_rotation_90(){
     down[2][0] = temp_front2;
 
     colors temp[size][size];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             temp[i][j] = left[i][j];
         }
     }
@@ -181,7 +181,7 @@ void Cube::left_rotation_90(){
     sleep(sleepp);
 }
 
-void Cube::front_rotation_90(){
+void Cube::front_rotation_90() {
     colors temp_up20 = up[2][0];
     colors temp_up21 = up[2][1];
     colors temp_up22 = up[2][2];
@@ -203,8 +203,8 @@ void Cube::front_rotation_90(){
     right[2][0] = temp_up22;
 
     colors temp[size][size];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             temp[i][j] = front[i][j];
         }
     }
@@ -225,7 +225,7 @@ void Cube::front_rotation_90(){
     sleep(sleepp);
 }
 
-void Cube::front_rotation_against_90(){
+void Cube::front_rotation_against_90() {
     colors temp_up20 = up[2][0];
     colors temp_up21 = up[2][1];
     colors temp_up22 = up[2][2];
@@ -242,14 +242,14 @@ void Cube::front_rotation_against_90(){
     down[0][1] = left[1][2];
     down[0][2] = left[2][2];
 
-    left[0][2] = temp_up22 ;
+    left[0][2] = temp_up22;
     left[1][2] = temp_up21;
     left[2][2] = temp_up20;
 
     colors temp[3][3];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
-            temp[i][j] =  front[i][j];
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            temp[i][j] = front[i][j];
         }
     }
 
@@ -269,7 +269,7 @@ void Cube::front_rotation_against_90(){
     sleep(sleepp);
 }
 
-void Cube::back_rotation_against_90(){
+void Cube::back_rotation_against_90() {
     colors temp_up00 = up[0][0];
     colors temp_up01 = up[0][1];
     colors temp_up02 = up[0][2];
@@ -291,8 +291,8 @@ void Cube::back_rotation_against_90(){
     right[2][2] = temp_up02;
 
     colors temp[3][3];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             temp[i][j] = back[i][j];
         }
     }
@@ -313,7 +313,7 @@ void Cube::back_rotation_against_90(){
     sleep(sleepp);
 }
 
-void Cube::back_rotation_90(){
+void Cube::back_rotation_90() {
 
     colors temp_up00 = up[0][0];
     colors temp_up01 = up[0][1];
@@ -336,8 +336,8 @@ void Cube::back_rotation_90(){
     left[2][0] = temp_up00;
 
     colors temp[size][size];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             temp[i][j] = back[i][j];
         }
     }
@@ -380,8 +380,8 @@ void Cube::down_rotation_90() {
     right[2][2] = temp_front22;
 
     colors temp[size][size];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             temp[i][j] = down[i][j];
         }
     }
@@ -424,8 +424,8 @@ void Cube::down_rotation_against_90() {
     left[2][2] = temp_front22;
 
     colors temp[size][size];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             temp[i][j] = down[i][j];
         }
     }
@@ -468,8 +468,8 @@ void Cube::up_rotation_against_90() { ///
     right[0][2] = temp_front02;
 
     colors temp[size][size];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             temp[i][j] = up[i][j];
         }
     }
@@ -512,8 +512,8 @@ void Cube::up_rotation_90() {
     left[0][2] = temp_front02;
 
     colors temp[size][size];
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             temp[i][j] = up[i][j];
         }
     }
