@@ -1,13 +1,24 @@
+/**
+ * \file rotations.cpp
+ * \brief Реализация функций для поворота граней куба Рубика.
+ */
+
 #include "cube.h"
 #include <unistd.h>
 
-int sleepp = 1;
+int sleepp = 1; ///< Время задержки между отображениями куба.
 
-void Cube::right_rotation_90() {
+/**
+ * \brief Поворачивает правую грань куба на 90 градусов по часовой стрелке.
+ */
+void Cube::right_rotation_90(){
+    // Сохранение текущих значений передней грани.
+
     colors temp_front0 = front[0][2];
     colors temp_front1 = front[1][2];
     colors temp_front2 = front[2][2];
 
+    // Перемещение цветов с нижней грани на переднюю.
     front[0][2] = down[0][2];
     front[1][2] = down[1][2];
     front[2][2] = down[2][2];
@@ -24,6 +35,7 @@ void Cube::right_rotation_90() {
     up[1][2] = temp_front1;
     up[2][2] = temp_front2;
 
+    // Поворот правой грани на 90 градусов.
     colors temp[3][3];
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
@@ -47,7 +59,12 @@ void Cube::right_rotation_90() {
     sleep(sleepp);
 }
 
-void Cube::right_rotation_against_90() {
+
+/**
+ * \brief Поворачивает правую грань куба на 90 градусов против часовой стрелки.
+ */
+void Cube::right_rotation_against_90(){
+
 
     colors temp_front02 = front[0][2];
     colors temp_front12 = front[1][2];
@@ -92,7 +109,10 @@ void Cube::right_rotation_against_90() {
     sleep(sleepp);
 }
 
-void Cube::left_rotation_against_90() {
+/**
+ * \brief Поворачивает левую грань куба на 90 градусов против часовой стрелки.
+ */
+void Cube::left_rotation_against_90(){
     colors temp_front0 = front[0][0];
     colors temp_front1 = front[1][0];
     colors temp_front2 = front[2][0];
@@ -136,7 +156,11 @@ void Cube::left_rotation_against_90() {
     sleep(sleepp);
 }
 
-void Cube::left_rotation_90() {
+
+/**
+ * \brief Поворачивает левую грань куба на 90 градусов по часовой стрелке.
+ */
+void Cube::left_rotation_90(){
 
     colors temp_front0 = front[0][0];
     colors temp_front1 = front[1][0];
@@ -181,7 +205,11 @@ void Cube::left_rotation_90() {
     sleep(sleepp);
 }
 
-void Cube::front_rotation_90() {
+/**
+ * \brief Поворачивает переднюю грань куба на 90 градусов по часовой стрелке.
+ */
+void Cube::front_rotation_90(){
+
     colors temp_up20 = up[2][0];
     colors temp_up21 = up[2][1];
     colors temp_up22 = up[2][2];
@@ -202,6 +230,7 @@ void Cube::front_rotation_90() {
     right[1][0] = temp_up21;
     right[2][0] = temp_up22;
 
+    // Поворот передней грани на 90 градусов.
     colors temp[size][size];
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
@@ -225,7 +254,11 @@ void Cube::front_rotation_90() {
     sleep(sleepp);
 }
 
-void Cube::front_rotation_against_90() {
+/**
+ * \brief Поворачивает переднюю грань куба на 90 градусов против часовой стрелки.
+ */
+void Cube::front_rotation_against_90(){
+
     colors temp_up20 = up[2][0];
     colors temp_up21 = up[2][1];
     colors temp_up22 = up[2][2];
@@ -269,7 +302,11 @@ void Cube::front_rotation_against_90() {
     sleep(sleepp);
 }
 
-void Cube::back_rotation_against_90() {
+/**
+ * \brief Поворачивает заднюю грань куба против часовой стрелки на 90 градусов.
+ */
+void Cube::back_rotation_against_90(){
+
     colors temp_up00 = up[0][0];
     colors temp_up01 = up[0][1];
     colors temp_up02 = up[0][2];
@@ -313,7 +350,11 @@ void Cube::back_rotation_against_90() {
     sleep(sleepp);
 }
 
-void Cube::back_rotation_90() {
+
+/**
+ * \brief Поворачивает заднюю грань куба по часовой стрелке на 90 градусов.
+ */
+void Cube::back_rotation_90(){
 
     colors temp_up00 = up[0][0];
     colors temp_up01 = up[0][1];
@@ -358,6 +399,9 @@ void Cube::back_rotation_90() {
     sleep(sleepp);
 }
 
+/**
+ * \brief Поворачивает нижнюю грань куба по часовой стрелке на 90 градусов.
+ */
 void Cube::down_rotation_90() {
     colors temp_front20 = front[2][0];
     colors temp_front21 = front[2][1];
@@ -402,6 +446,9 @@ void Cube::down_rotation_90() {
     sleep(sleepp);
 }
 
+/**
+ * \brief Поворачивает нижнюю грань куба против часовой стрелки на 90 градусов.
+ */
 void Cube::down_rotation_against_90() {
     colors temp_front20 = front[2][0];
     colors temp_front21 = front[2][1];
@@ -446,6 +493,9 @@ void Cube::down_rotation_against_90() {
     sleep(sleepp);
 }
 
+/**
+ * \brief Поворачивает верхнюю грань куба против часовой стрелки на 90 градусов.
+ */
 void Cube::up_rotation_against_90() { ///
     colors temp_front00 = front[0][0];
     colors temp_front01 = front[0][1];
@@ -490,6 +540,9 @@ void Cube::up_rotation_against_90() { ///
     sleep(sleepp);
 }
 
+/**
+ * \brief Поворачивает верхнюю грань куба по часовой стрелке на 90 градусов.
+ */
 void Cube::up_rotation_90() {
     colors temp_front00 = front[0][0];
     colors temp_front01 = front[0][1];

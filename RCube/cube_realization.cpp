@@ -1,3 +1,7 @@
+/**
+ * \file cube_realization.cpp
+ * \brief Реализация функций для работы с кубом Рубика, включая преобразование цветов, случайные перестановки и другие операции.
+ */
 #include "cube.h"
 #include <fstream>
 
@@ -6,7 +10,11 @@ using std::ifstream;
 using std::ofstream;
 using std::endl;
 
-
+/**
+ * \brief Преобразует цвет в соответствующую букву.
+ * \param col Цвет.
+ * \return Буква, соответствующая цвету.
+ */
 char return_letter(colors col) {
     if (col == RED) {
         return 'r';
@@ -28,6 +36,11 @@ char return_letter(colors col) {
     }
 }
 
+/**
+ * \brief Преобразует букву в соответствующий цвет.
+ * \param col Буква.
+ * \return Цвет, соответствующий букве.
+ */
 colors return_clor(char col) {
     if (col == 'r') {
         return RED;
@@ -49,11 +62,14 @@ colors return_clor(char col) {
     }
 }
 
+/**
+ * \brief Генерирует случайную конфигурацию куба.
+ */
 void Cube::random_situation() {
-    srand(time(0));
-    int number_of_flips = rand() % 50;
+    srand(time(0)); ///< Инициализирует генератор случайных чисел.
+    int number_of_flips = rand() % 50; ///< Определяет количество случайных поворотов.
     for (int i = 0; i < number_of_flips; i++) {
-        int command = rand() % 12;
+        int command = rand() % 12; ///< Выбирает случайную команду.
         switch (command) {
             case 0 :
                 this->right_rotation_90();
@@ -92,20 +108,24 @@ void Cube::random_situation() {
                 this->back_rotation_against_90();
                 break;
         }
-        this->show_to_concol();
+        this->show_to_concol(); ///< Выводит текущее состояние куба на консоль.
     }
 }
 
+/**
+ * \brief Заполняет куб данными из файла.
+ * \param name_of_the_file Имя файла.
+ */
 void Cube::fill_from_the_file(const char *name_of_the_file) {
     ifstream file;
     file.open(name_of_the_file);
     char col;
-    char temp[3][3];
+    char temp[3][3]; ///< Временный массив для хранения цветов стороны куба.
     for (int i = 0; i < size * 2; i++) {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 file >> col;
-                temp[i][j] = (col);
+                temp[i][j] = (col); ///< Сохраняет цвет во временный массив.
             }
         }
         if (temp[1][1] == 'r') {
@@ -152,6 +172,10 @@ void Cube::fill_from_the_file(const char *name_of_the_file) {
     display_f();
 }
 
+/**
+ * \brief Проверяет, есть ли на кубе все цвета.
+ * \return true, если все цвета присутствуют, иначе false.
+ */
 bool Cube::has_all_colors() {
     int red = 0, white = 0, yellow = 0, blue = 0, green = 0, orange = 0;
     for (int i = 0; i < size; i++) {
@@ -276,14 +300,18 @@ bool Cube::has_all_colors() {
             }
         }
     }
-    if (red == 9 and white == 9 and yellow == 9 and blue == 9 and green == 9 and orange == 9) return true;
+    if (red == 9 and white == 9 and yellow == 9 and blue == 9 and green == 9 and orange == 9) return true; ///< Проверяет, есть ли по 9 квадратов каждого цвета.
     return false;
 }
 
+/**
+ * \brief Проверяет, правильно ли собран куб.
+ * \return true, если куб собран правильно, иначе false.
+ */
 bool Cube::check() {
     bool flag = true;
     if (down[1][1] == RED) {
-        if (up[1][1] != ORANGE) flag = false;
+        if (up[1][1] != ORANGE) flag = false; ///< Проверка противоположного цвета.
     }
     if (left[1][1] == GREEN) {
         if (right[1][1] != BLUE) flag = false;
@@ -294,6 +322,9 @@ bool Cube::check() {
     return flag and has_all_colors();
 }
 
+/**
+ * \brief Отображает состояние куба и записывает его в файл "Cube.out".
+ */
 void Cube::show(std::string file) {
     file = file.empty() ? "Cube.out" : file;
     ofstream out("Cube.out");
@@ -342,13 +373,15 @@ void Cube::show(std::string file) {
     out.close();
 }
 
-
+/**
+ * \brief Выводит текущее состояние куба на консоль.
+ */
 void Cube::show_to_concol() {
     cout << "This is your cube right now: " << '\n';
     for (int i = 0; i < size; i++) {
         cout << "       ";
         for (auto col: up[i]) {
-            cout << return_letter(col) << " ";
+            cout << return_letter(col) << " "; ///< Вывод цвета в консоль.
         }
         cout << endl;
     }
@@ -389,6 +422,10 @@ void Cube::show_to_concol() {
     cout << endl;
 }
 
+/**
+ * \brief Проверяет, правильно ли собран куб.
+ * \return true, если куб собран правильно, иначе false.
+ */
 bool Cube::check_solved() {
 
     for (int i = 0; i < size; i++) {
@@ -429,11 +466,18 @@ bool Cube::check_solved() {
     return true;
 }
 
+/**
+ * \brief Выводит сообщение в консоль о правильности сборки куба.
+ */
 void Cube::check_solved_answer_for_cout() {
     if (check_solved()) cout << "Your cube is right\n";
     else cout << "Ooops, mistake...";
 }
 
+
+/**
+ * \brief Выводит сообщение в консоль о правильности сборки куба и наличии всех цветов.
+ */
 void Cube::check_answer_for_cout() {
     if (check()) cout << "Your cube is right and has all colers\n";
     else cout << "Ooops, mistake...";

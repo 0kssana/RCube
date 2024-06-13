@@ -1,3 +1,8 @@
+/**
+ * \file cube.h
+ * \brief Заголовочный файл со структурами.
+ */
+
 #pragma once
 
 #include <GL/glut.h>
@@ -6,6 +11,12 @@
 
 using std::cout;
 using std::vector;
+
+
+/**
+ * \enum colors
+ * \brief Цвета кубика Рубика.
+ */
 
 enum colors {
     GREEN,
@@ -16,7 +27,14 @@ enum colors {
     RED
 };
 
-class Cube {
+
+/**
+ * \class Cube
+ * \brief Базовый абстрактный класс для кубика Рубика.
+ * Этот класс представляет собой кубик Рубика с методами для управления его состоянием и выполнения операций.
+ * Включает методы для вращений, алгоритмов решения, заполнения цветами и графического отображения.
+ */
+class Cube{
 private:
     int const size = 3;
     vector<vector<colors>> left;
@@ -39,8 +57,13 @@ private:
     float rotate_y = 0;
 public:
 
-    Cube() {
-        for (int i = 0; i < size; i++) {
+    /**
+     * \brief Конструктор для класса Cube.
+     *
+     * Инициализирует кубик Рубика начальными цветами.
+     */
+    Cube(){
+        for(int i = 0; i < size; i++){
             left.push_back({});
             front.push_back({});
             right.push_back({});
