@@ -105,8 +105,6 @@ public:
 
     void front_rotation_against_90();
 
-    \
-
 
     void back_rotation_90();
 

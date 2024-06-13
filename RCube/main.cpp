@@ -22,7 +22,7 @@ void specialKeys(int key, int x, int y) {
  * \param x Координата x курсора мыши.
  * \param y Координата y курсора мыши.
  */
-void normalKeys(unsigned char key, int x, int y) {
+void normalKeys(unsigned char key, int x, int y) { // как callbacks
     my_cube.normalKeys_f(key, x, y);
 }
 
@@ -36,7 +36,7 @@ void display() {
 /**
  * \brief Инициализация параметров OpenGL.
  */
-
+// Начало заимствования кода с сайта: https://www.opita.net/node/896. Инициализируем параметры OpenGL.
 void init() {
     glClearColor(0.2, 0.2, 0.2, 1);
     // освещение
@@ -74,3 +74,4 @@ int main(int argc, char *argv[]) {
     return 0;
 
 }
+// Конец заимствования кода
