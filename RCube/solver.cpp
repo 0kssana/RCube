@@ -381,7 +381,7 @@ void Cube::first_corner() {
         (front[0][2] == YELLOW and right[0][0] == GREEN and up[2][2] == RED)
         or (front[0][2] == GREEN and right[0][0] == YELLOW and up[2][2] == RED) or
         (front[0][2] == GREEN and right[0][0] == RED and up[2][2] == YELLOW)) {
-        for(int i = 0; i < 2; i++) up_rotation_90();
+        for (int i = 0; i < 2; i++) up_rotation_90();
         while (back[2][2] != YELLOW or left[2][0] != GREEN or down[2][0] != RED) {
             left_pif_paf();
         }
@@ -691,7 +691,8 @@ bool Cube::assembly_check() {
 
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            if (front[i][j] != WHITE or right[i][j] != BLUE or back[i][j] != YELLOW or left[i][j] != GREEN or up[i][j] != ORANGE or down[i][j] != RED) {
+            if (front[i][j] != WHITE or right[i][j] != BLUE or back[i][j] != YELLOW or left[i][j] != GREEN or
+                up[i][j] != ORANGE or down[i][j] != RED) {
                 flag = false;
             }
         }
@@ -721,7 +722,6 @@ bool Cube::check_orange_right_cross() {
 
     return flag;
 }
-
 
 
 bool Cube::check_upper_edges() {

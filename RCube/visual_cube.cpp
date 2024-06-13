@@ -155,7 +155,7 @@ void Cube::specialKeys_f(int key, int x, int y) {
  * \param y Координата y курсора мыши.
  */
 void Cube::normalKeys_f(unsigned char key, int x, int y) {
-    if(key == '1')
+    if (key == '1')
         right_rotation_90();
     else if (key == '2')
         right_rotation_against_90();
@@ -181,17 +181,19 @@ void Cube::normalKeys_f(unsigned char key, int x, int y) {
         up_rotation_90();
     else if (key == '=')
         up_rotation_against_90();
-    else if(key == 'r'){
+    else if (key == 'r') {
         random_situation();
-    }
-    else if(key == 's'){
+    } else if (key == 's') {
         Cube::main_solver();
-    }
-    else if(key == 'c'){
+    } else if (key == 'c') {
         check_solved_answer_for_cout();
     } else if (key == 'n') {
         show_to_concol();
-    } else if (key == 'o'){
+    } else if (key == 'o') {
         show("Cubeout.txt");
+    } else if (key == 'h') {
+        check_answer_for_cout();
+    } else if (key == 'i') {
+        Cube::fill_from_the_file("cubein.txt");
     }
 }

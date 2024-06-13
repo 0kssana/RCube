@@ -169,6 +169,7 @@ void Cube::fill_from_the_file(const char *name_of_the_file) {
 
     file.close();
     cout << "reading from the file complited\n";
+    display_f();
 }
 
 /**
@@ -325,11 +326,8 @@ bool Cube::check() {
  * \brief Отображает состояние куба и записывает его в файл "Cube.out".
  */
 void Cube::show(std::string file) {
-    if (file.empty()) {
-       file = "Cube.out";
-    }
-    file = file.empty() ?? 
-    ofstream out(file);
+    file = file.empty() ? "Cube.out" : file;
+    ofstream out("Cube.out");
     for (int i = 0; i < size; i++) {
         out << "       ";
         for (auto col: up[i]) {

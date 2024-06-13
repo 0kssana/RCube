@@ -13,6 +13,11 @@ add_executable(RCube
         RCube/solver.cpp
         RCube/visual_cube.cpp)
 
+add_custom_command(TARGET RCube POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${CMAKE_CURRENT_SOURCE_DIR}/RCube/Cubein.txt
+        $<TARGET_FILE_DIR:RCube>/Cubein.txt)
+
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
 
