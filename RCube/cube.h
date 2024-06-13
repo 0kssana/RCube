@@ -18,6 +18,7 @@ enum colors{
 class Cube{
 private:
     friend class CubeTest;
+    friend class MockCube;
     int const size = 3;
     vector<vector<colors>> left;
     vector<vector<colors>> front;
@@ -65,9 +66,9 @@ public:
 
     void show_to_concol();
 
-    bool has_all_colors();
+    virtual bool has_all_colors();
 
-    bool check();
+    virtual bool check();
 
     void right_rotation_90();
     void right_rotation_against_90();
