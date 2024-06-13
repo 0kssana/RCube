@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Проект КУБИК-РУБИКА: Исходный файл cube.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Проект КУБИК-РУБИКА
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">cube.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="cube_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;GL/glut.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">using </span>std::cout;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">using </span>std::vector;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="cube_8h.html#aedd64c3f92da850b93776c65fd1cced3">   21</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="cube_8h.html#aedd64c3f92da850b93776c65fd1cced3">colors</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    GREEN,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    WHITE,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    BLUE,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    YELLOW,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    ORANGE,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    RED</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_cube.html">   37</a></span><span class="keyword">class </span><a class="code hl_class" href="class_cube.html">Cube</a>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">int</span> <span class="keyword">const</span> size = 3;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    vector&lt;vector&lt;colors&gt;&gt; left;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    vector&lt;vector&lt;colors&gt;&gt; front;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    vector&lt;vector&lt;colors&gt;&gt; right;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    vector&lt;vector&lt;colors&gt;&gt; back;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    vector&lt;vector&lt;colors&gt;&gt; up;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    vector&lt;vector&lt;colors&gt;&gt; down;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">struct </span>palette {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordtype">float</span> RED;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">float</span> GREEN;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">float</span> BLUE;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    };</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">struct </span>x_y_z {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordtype">float</span> x;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">float</span> y;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">float</span> z;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    };</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">float</span> rotate_x = 0;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">float</span> rotate_y = 0;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_cube.html#a06f3d86fb63e3aad08623610aa3c17b4">   65</a></span>    <a class="code hl_function" href="class_cube.html#a06f3d86fb63e3aad08623610aa3c17b4">Cube</a>(){</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; size; i++){</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            left.push_back({});</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            front.push_back({});</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            right.push_back({});</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            back.push_back({});</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            up.push_back({});</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            down.push_back({});</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; size; j++) {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                left[i].push_back(GREEN);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                front[i].push_back(WHITE);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                right[i].push_back(BLUE);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                back[i].push_back(YELLOW);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                up[i].push_back(ORANGE);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                down[i].push_back(RED);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a519b1e0db2e698d7775c14b619a1881c">random_situation</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#aa47e8bb311ce21e721307a62d6025cc3">fill_from_the_file</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *name_of_the_file);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a87fb29889b5b29f1d5667bb5371a38cc">show</a>(std::string file = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#adfed617a7f8cd579427d00f807983f78">show_to_concol</a>();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_cube.html#aff8626c1d9fb88dfb3d3cb69330ef8b4">has_all_colors</a>();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_cube.html#a1a79ca94f337f4cf25d434dd264622e0">check</a>();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a26d59cde6d443e78985d19043c6d5129">right_rotation_90</a>();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a540b4a11cafd1b75aa9a96ea134b2675">right_rotation_against_90</a>();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#aec9ec1b1b4542f5cbc37d4d375bfda05">left_rotation_90</a>();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a80961cf8d4627434cd820c8d0b9fea03">left_rotation_against_90</a>();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#af5279fa0c55bca44d981ed033d878fc5">front_rotation_90</a>();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a6b952023fae5403bfb710119c6891efa">front_rotation_against_90</a>();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    \</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a020c3aad434ceb2721eb669d3cd5be04">back_rotation_90</a>();</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a267ee58be6a6b5068f848f2805edfa4a">back_rotation_against_90</a>();</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#ab35750256ccbe67da6eaa850c266eac1">down_rotation_90</a>();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a396ac6ab3a325cb709d1e3d1d2da0ff9">down_rotation_against_90</a>();</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#acad3ef175da8965521a0b0827dbe10ce">up_rotation_90</a>();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a289ccf2ce146edc544bb248514283c75">up_rotation_against_90</a>();</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a0dd3d570e299fe1c8c3397cc5c1e417e">front_pif_paf</a>();</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#ad7dcd46f82be4beb127e1610dfa9d1de">back_pif_paf</a>();</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a24db3a0a6319b25e096d9f4af2d12a7b">right_pif_paf</a>();</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a0a2ffc5b68dc70d0269399974b5b1437">left_pif_paf</a>();</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#aba489a19c1f61984387d1a99c188388b">flower</a>();</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a1cec47ad3d26cb44c2f968f92bd0f9c8">right_cross</a>();</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#abb635521759e037a2fb860671a689c35">first_layer</a>();</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a240434e5c3cfa46a2087b31fe70e2043">second</a>();</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_cube.html#ac3cfe3b69b93e0bfb3295bb9d140ceb2">check_orange_right_cross</a>();</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_cube.html#aa9747dc4bab4370d5514bbadd155890d">assembly_check</a>();</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a382b51090ac19fb8368b43590a167ace">third</a>();</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_cube.html#ac724a1091bd4cbf70ebbf326210b4dfb">check_upper_edges</a>();</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_cube.html#ae43a2f2498178da246605feec183db3d">orange_cross_check</a>();</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#ace529b05a773c6985e013cd2889a4256">first_corner</a>();</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#aeb086eaade12b91665488fbab8d6ec80">second_corner</a>();</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a3b42b536a5b3179d73df5bc710e7c9a4">third_corner</a>();</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#ad45abf4a931fee43ac64f40f0950abb0">fourth_corner</a>();</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#af3e17612997217afb84a8e724a039728">main_solver</a>();</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_cube.html#a8b5135044692f04e623b012939610072">check_solved</a>();</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#ae58d5a09c69b3cfc30e8478847c82df2">check_solved_answer_for_cout</a>();</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#acd0f3307cd02487247a6f86934f9f7c5">check_answer_for_cout</a>();</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a593749470e9c978d960d7b50e877cd92">call_coloring</a>();</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a9346646ed0abf9677ee1aa70ddaad6c9">coloring</a>(vector&lt;vector&lt;colors&gt;&gt; &amp;side, <span class="keywordtype">int</span> k);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a2b7604c0ba8756aebeae4fe8ce8242dc">square_mini</a>(palette tmp, x_y_z a);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a968844f4627afa49f517a263ad7b3842">square</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z, <span class="keywordtype">float</span> rotate, vector&lt;palette&gt; tmp);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a4a9b666968f2b3752733deca8359454b">display_f</a>();</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#a5765dfed14428d1f9e0f51975203a567">specialKeys_f</a>(<span class="keywordtype">int</span> key, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cube.html#ae05dc6524cbfd4b0b179cdbf9f440034">normalKeys_f</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> key, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>};</div>
+</div>
+<div class="ttc" id="aclass_cube_html"><div class="ttname"><a href="class_cube.html">Cube</a></div><div class="ttdoc">Базовый абстрактный класс для кубика Рубика. Этот класс представляет собой кубик Рубика с методами дл...</div><div class="ttdef"><b>Definition</b> cube.h:37</div></div>
+<div class="ttc" id="aclass_cube_html_a020c3aad434ceb2721eb669d3cd5be04"><div class="ttname"><a href="class_cube.html#a020c3aad434ceb2721eb669d3cd5be04">Cube::back_rotation_90</a></div><div class="ttdeci">void back_rotation_90()</div><div class="ttdoc">Поворачивает заднюю грань куба по часовой стрелке на 90 градусов.</div><div class="ttdef"><b>Definition</b> rotations.cpp:357</div></div>
+<div class="ttc" id="aclass_cube_html_a06f3d86fb63e3aad08623610aa3c17b4"><div class="ttname"><a href="class_cube.html#a06f3d86fb63e3aad08623610aa3c17b4">Cube::Cube</a></div><div class="ttdeci">Cube()</div><div class="ttdoc">Конструктор для класса Cube.</div><div class="ttdef"><b>Definition</b> cube.h:65</div></div>
+<div class="ttc" id="aclass_cube_html_a0a2ffc5b68dc70d0269399974b5b1437"><div class="ttname"><a href="class_cube.html#a0a2ffc5b68dc70d0269399974b5b1437">Cube::left_pif_paf</a></div><div class="ttdeci">void left_pif_paf()</div><div class="ttdoc">Выполняет комбинацию движений &quot;пиф-паф&quot; на левой грани кубика.</div><div class="ttdef"><b>Definition</b> solver.cpp:46</div></div>
+<div class="ttc" id="aclass_cube_html_a0dd3d570e299fe1c8c3397cc5c1e417e"><div class="ttname"><a href="class_cube.html#a0dd3d570e299fe1c8c3397cc5c1e417e">Cube::front_pif_paf</a></div><div class="ttdeci">void front_pif_paf()</div><div class="ttdoc">Выполняет комбинацию движений &quot;пиф-паф&quot; на передней грани кубика.</div><div class="ttdef"><b>Definition</b> solver.cpp:16</div></div>
+<div class="ttc" id="aclass_cube_html_a1a79ca94f337f4cf25d434dd264622e0"><div class="ttname"><a href="class_cube.html#a1a79ca94f337f4cf25d434dd264622e0">Cube::check</a></div><div class="ttdeci">bool check()</div><div class="ttdoc">Проверяет, правильно ли собран куб.</div><div class="ttdef"><b>Definition</b> cube_realization.cpp:311</div></div>
+<div class="ttc" id="aclass_cube_html_a1cec47ad3d26cb44c2f968f92bd0f9c8"><div class="ttname"><a href="class_cube.html#a1cec47ad3d26cb44c2f968f92bd0f9c8">Cube::right_cross</a></div><div class="ttdeci">void right_cross()</div><div class="ttdoc">Функция создания правильного креста на нижней грани.</div><div class="ttdef"><b>Definition</b> solver.cpp:261</div></div>
+<div class="ttc" id="aclass_cube_html_a240434e5c3cfa46a2087b31fe70e2043"><div class="ttname"><a href="class_cube.html#a240434e5c3cfa46a2087b31fe70e2043">Cube::second</a></div><div class="ttdeci">void second()</div><div class="ttdoc">Сборка второго слоя кубика Рубика.</div><div class="ttdef"><b>Definition</b> solver.cpp:582</div></div>
+<div class="ttc" id="aclass_cube_html_a24db3a0a6319b25e096d9f4af2d12a7b"><div class="ttname"><a href="class_cube.html#a24db3a0a6319b25e096d9f4af2d12a7b">Cube::right_pif_paf</a></div><div class="ttdeci">void right_pif_paf()</div><div class="ttdoc">Выполняет комбинацию движений &quot;пиф-паф&quot; на правой грани кубика.</div><div class="ttdef"><b>Definition</b> solver.cpp:36</div></div>
+<div class="ttc" id="aclass_cube_html_a267ee58be6a6b5068f848f2805edfa4a"><div class="ttname"><a href="class_cube.html#a267ee58be6a6b5068f848f2805edfa4a">Cube::back_rotation_against_90</a></div><div class="ttdeci">void back_rotation_against_90()</div><div class="ttdoc">Поворачивает заднюю грань куба против часовой стрелки на 90 градусов.</div><div class="ttdef"><b>Definition</b> rotations.cpp:308</div></div>
+<div class="ttc" id="aclass_cube_html_a26d59cde6d443e78985d19043c6d5129"><div class="ttname"><a href="class_cube.html#a26d59cde6d443e78985d19043c6d5129">Cube::right_rotation_90</a></div><div class="ttdeci">void right_rotation_90()</div><div class="ttdoc">Поворачивает правую грань куба на 90 градусов по часовой стрелке.</div><div class="ttdef"><b>Definition</b> rotations.cpp:14</div></div>
+<div class="ttc" id="aclass_cube_html_a289ccf2ce146edc544bb248514283c75"><div class="ttname"><a href="class_cube.html#a289ccf2ce146edc544bb248514283c75">Cube::up_rotation_against_90</a></div><div class="ttdeci">void up_rotation_against_90()</div><div class="ttdoc">Поворачивает верхнюю грань куба против часовой стрелки на 90 градусов.</div><div class="ttdef"><b>Definition</b> rotations.cpp:499</div></div>
+<div class="ttc" id="aclass_cube_html_a2b7604c0ba8756aebeae4fe8ce8242dc"><div class="ttname"><a href="class_cube.html#a2b7604c0ba8756aebeae4fe8ce8242dc">Cube::square_mini</a></div><div class="ttdeci">void square_mini(palette tmp, x_y_z a)</div><div class="ttdoc">Отрисовывает маленький квадрат куба.</div><div class="ttdef"><b>Definition</b> visual_cube.cpp:64</div></div>
+<div class="ttc" id="aclass_cube_html_a382b51090ac19fb8368b43590a167ace"><div class="ttname"><a href="class_cube.html#a382b51090ac19fb8368b43590a167ace">Cube::third</a></div><div class="ttdeci">void third()</div><div class="ttdoc">Метод для сборки третьего слоя кубика Рубика.</div><div class="ttdef"><b>Definition</b> solver.cpp:838</div></div>
+<div class="ttc" id="aclass_cube_html_a396ac6ab3a325cb709d1e3d1d2da0ff9"><div class="ttname"><a href="class_cube.html#a396ac6ab3a325cb709d1e3d1d2da0ff9">Cube::down_rotation_against_90</a></div><div class="ttdeci">void down_rotation_against_90()</div><div class="ttdoc">Поворачивает нижнюю грань куба против часовой стрелки на 90 градусов.</div><div class="ttdef"><b>Definition</b> rotations.cpp:452</div></div>
+<div class="ttc" id="aclass_cube_html_a3b42b536a5b3179d73df5bc710e7c9a4"><div class="ttname"><a href="class_cube.html#a3b42b536a5b3179d73df5bc710e7c9a4">Cube::third_corner</a></div><div class="ttdeci">void third_corner()</div><div class="ttdoc">Функция предназначена для решения первого углового элемента кубика Рубика, используя алгоритмы на осн...</div><div class="ttdef"><b>Definition</b> solver.cpp:423</div></div>
+<div class="ttc" id="aclass_cube_html_a4a9b666968f2b3752733deca8359454b"><div class="ttname"><a href="class_cube.html#a4a9b666968f2b3752733deca8359454b">Cube::display_f</a></div><div class="ttdeci">void display_f()</div><div class="ttdoc">Функция отображения куба.</div><div class="ttdef"><b>Definition</b> visual_cube.cpp:115</div></div>
+<div class="ttc" id="aclass_cube_html_a519b1e0db2e698d7775c14b619a1881c"><div class="ttname"><a href="class_cube.html#a519b1e0db2e698d7775c14b619a1881c">Cube::random_situation</a></div><div class="ttdeci">void random_situation()</div><div class="ttdoc">Генерирует случайную конфигурацию куба.</div><div class="ttdef"><b>Definition</b> cube_realization.cpp:68</div></div>
+<div class="ttc" id="aclass_cube_html_a540b4a11cafd1b75aa9a96ea134b2675"><div class="ttname"><a href="class_cube.html#a540b4a11cafd1b75aa9a96ea134b2675">Cube::right_rotation_against_90</a></div><div class="ttdeci">void right_rotation_against_90()</div><div class="ttdoc">Поворачивает правую грань куба на 90 градусов против часовой стрелки.</div><div class="ttdef"><b>Definition</b> rotations.cpp:66</div></div>
+<div class="ttc" id="aclass_cube_html_a5765dfed14428d1f9e0f51975203a567"><div class="ttname"><a href="class_cube.html#a5765dfed14428d1f9e0f51975203a567">Cube::specialKeys_f</a></div><div class="ttdeci">void specialKeys_f(int key, int x, int y)</div><div class="ttdoc">Обрабатывает нажатия специальных клавиш.</div><div class="ttdef"><b>Definition</b> visual_cube.cpp:136</div></div>
+<div class="ttc" id="aclass_cube_html_a593749470e9c978d960d7b50e877cd92"><div class="ttname"><a href="class_cube.html#a593749470e9c978d960d7b50e877cd92">Cube::call_coloring</a></div><div class="ttdeci">void call_coloring()</div><div class="ttdoc">Вызывает функцию закрашивания для всех сторон куба.</div><div class="ttdef"><b>Definition</b> visual_cube.cpp:12</div></div>
+<div class="ttc" id="aclass_cube_html_a6b952023fae5403bfb710119c6891efa"><div class="ttname"><a href="class_cube.html#a6b952023fae5403bfb710119c6891efa">Cube::front_rotation_against_90</a></div><div class="ttdeci">void front_rotation_against_90()</div><div class="ttdoc">Поворачивает переднюю грань куба на 90 градусов против часовой стрелки.</div><div class="ttdef"><b>Definition</b> rotations.cpp:260</div></div>
+<div class="ttc" id="aclass_cube_html_a80961cf8d4627434cd820c8d0b9fea03"><div class="ttname"><a href="class_cube.html#a80961cf8d4627434cd820c8d0b9fea03">Cube::left_rotation_against_90</a></div><div class="ttdeci">void left_rotation_against_90()</div><div class="ttdoc">Поворачивает левую грань куба на 90 градусов против часовой стрелки.</div><div class="ttdef"><b>Definition</b> rotations.cpp:115</div></div>
+<div class="ttc" id="aclass_cube_html_a87fb29889b5b29f1d5667bb5371a38cc"><div class="ttname"><a href="class_cube.html#a87fb29889b5b29f1d5667bb5371a38cc">Cube::show</a></div><div class="ttdeci">void show(std::string file=&quot;&quot;)</div><div class="ttdoc">Отображает состояние куба и записывает его в файл &quot;Cube.out&quot;.</div><div class="ttdef"><b>Definition</b> cube_realization.cpp:328</div></div>
+<div class="ttc" id="aclass_cube_html_a8b5135044692f04e623b012939610072"><div class="ttname"><a href="class_cube.html#a8b5135044692f04e623b012939610072">Cube::check_solved</a></div><div class="ttdeci">bool check_solved()</div><div class="ttdoc">Проверяет, правильно ли собран куб.</div><div class="ttdef"><b>Definition</b> cube_realization.cpp:429</div></div>
+<div class="ttc" id="aclass_cube_html_a9346646ed0abf9677ee1aa70ddaad6c9"><div class="ttname"><a href="class_cube.html#a9346646ed0abf9677ee1aa70ddaad6c9">Cube::coloring</a></div><div class="ttdeci">void coloring(vector&lt; vector&lt; colors &gt; &gt; &amp;side, int k)</div><div class="ttdoc">Закрашивает одну из сторон куба.</div><div class="ttdef"><b>Definition</b> visual_cube.cpp:26</div></div>
+<div class="ttc" id="aclass_cube_html_a968844f4627afa49f517a263ad7b3842"><div class="ttname"><a href="class_cube.html#a968844f4627afa49f517a263ad7b3842">Cube::square</a></div><div class="ttdeci">void square(float x, float y, float z, float rotate, vector&lt; palette &gt; tmp)</div><div class="ttdoc">Отрисовывает одну сторону куба.</div><div class="ttdef"><b>Definition</b> visual_cube.cpp:86</div></div>
+<div class="ttc" id="aclass_cube_html_aa47e8bb311ce21e721307a62d6025cc3"><div class="ttname"><a href="class_cube.html#aa47e8bb311ce21e721307a62d6025cc3">Cube::fill_from_the_file</a></div><div class="ttdeci">void fill_from_the_file(const char *name_of_the_file)</div><div class="ttdoc">Заполняет куб данными из файла.</div><div class="ttdef"><b>Definition</b> cube_realization.cpp:119</div></div>
+<div class="ttc" id="aclass_cube_html_aa9747dc4bab4370d5514bbadd155890d"><div class="ttname"><a href="class_cube.html#aa9747dc4bab4370d5514bbadd155890d">Cube::assembly_check</a></div><div class="ttdeci">bool assembly_check()</div><div class="ttdoc">Проверка полной сборки кубика Рубика.</div><div class="ttdef"><b>Definition</b> solver.cpp:746</div></div>
+<div class="ttc" id="aclass_cube_html_ab35750256ccbe67da6eaa850c266eac1"><div class="ttname"><a href="class_cube.html#ab35750256ccbe67da6eaa850c266eac1">Cube::down_rotation_90</a></div><div class="ttdeci">void down_rotation_90()</div><div class="ttdoc">Поворачивает нижнюю грань куба по часовой стрелке на 90 градусов.</div><div class="ttdef"><b>Definition</b> rotations.cpp:405</div></div>
+<div class="ttc" id="aclass_cube_html_aba489a19c1f61984387d1a99c188388b"><div class="ttname"><a href="class_cube.html#aba489a19c1f61984387d1a99c188388b">Cube::flower</a></div><div class="ttdeci">void flower()</div><div class="ttdoc">Собирает &quot;цветок&quot; на верхней грани кубика Рубика.</div><div class="ttdef"><b>Definition</b> solver.cpp:59</div></div>
+<div class="ttc" id="aclass_cube_html_abb635521759e037a2fb860671a689c35"><div class="ttname"><a href="class_cube.html#abb635521759e037a2fb860671a689c35">Cube::first_layer</a></div><div class="ttdeci">void first_layer()</div><div class="ttdoc">Сборка первого слоя кубика Рубика.</div><div class="ttdef"><b>Definition</b> solver.cpp:534</div></div>
+<div class="ttc" id="aclass_cube_html_ac3cfe3b69b93e0bfb3295bb9d140ceb2"><div class="ttname"><a href="class_cube.html#ac3cfe3b69b93e0bfb3295bb9d140ceb2">Cube::check_orange_right_cross</a></div><div class="ttdeci">bool check_orange_right_cross()</div><div class="ttdoc">Проверка правильного расположения рёбер креста на верхней грани.</div><div class="ttdef"><b>Definition</b> solver.cpp:785</div></div>
+<div class="ttc" id="aclass_cube_html_ac724a1091bd4cbf70ebbf326210b4dfb"><div class="ttname"><a href="class_cube.html#ac724a1091bd4cbf70ebbf326210b4dfb">Cube::check_upper_edges</a></div><div class="ttdeci">bool check_upper_edges()</div><div class="ttdoc">Проверка правильности расположения углов верхней грани кубика Рубика.</div><div class="ttdef"><b>Definition</b> solver.cpp:805</div></div>
+<div class="ttc" id="aclass_cube_html_acad3ef175da8965521a0b0827dbe10ce"><div class="ttname"><a href="class_cube.html#acad3ef175da8965521a0b0827dbe10ce">Cube::up_rotation_90</a></div><div class="ttdeci">void up_rotation_90()</div><div class="ttdoc">Поворачивает верхнюю грань куба по часовой стрелке на 90 градусов.</div><div class="ttdef"><b>Definition</b> rotations.cpp:546</div></div>
+<div class="ttc" id="aclass_cube_html_acd0f3307cd02487247a6f86934f9f7c5"><div class="ttname"><a href="class_cube.html#acd0f3307cd02487247a6f86934f9f7c5">Cube::check_answer_for_cout</a></div><div class="ttdeci">void check_answer_for_cout()</div><div class="ttdoc">Выводит сообщение в консоль о правильности сборки куба и наличии всех цветов.</div><div class="ttdef"><b>Definition</b> cube_realization.cpp:481</div></div>
+<div class="ttc" id="aclass_cube_html_ace529b05a773c6985e013cd2889a4256"><div class="ttname"><a href="class_cube.html#ace529b05a773c6985e013cd2889a4256">Cube::first_corner</a></div><div class="ttdeci">void first_corner()</div><div class="ttdoc">Функция предназначена для решения первого углового элемента кубика Рубика, используя алгоритмы на осн...</div><div class="ttdef"><b>Definition</b> solver.cpp:367</div></div>
+<div class="ttc" id="aclass_cube_html_ad45abf4a931fee43ac64f40f0950abb0"><div class="ttname"><a href="class_cube.html#ad45abf4a931fee43ac64f40f0950abb0">Cube::fourth_corner</a></div><div class="ttdeci">void fourth_corner()</div><div class="ttdoc">Функция предназначена для решения первого углового элемента кубика Рубика, используя алгоритмы на осн...</div><div class="ttdef"><b>Definition</b> solver.cpp:476</div></div>
+<div class="ttc" id="aclass_cube_html_ad7dcd46f82be4beb127e1610dfa9d1de"><div class="ttname"><a href="class_cube.html#ad7dcd46f82be4beb127e1610dfa9d1de">Cube::back_pif_paf</a></div><div class="ttdeci">void back_pif_paf()</div><div class="ttdoc">Выполняет комбинацию движений &quot;пиф-паф&quot; на задней грани кубика.</div><div class="ttdef"><b>Definition</b> solver.cpp:26</div></div>
+<div class="ttc" id="aclass_cube_html_adfed617a7f8cd579427d00f807983f78"><div class="ttname"><a href="class_cube.html#adfed617a7f8cd579427d00f807983f78">Cube::show_to_concol</a></div><div class="ttdeci">void show_to_concol()</div><div class="ttdoc">Выводит текущее состояние куба на консоль.</div><div class="ttdef"><b>Definition</b> cube_realization.cpp:379</div></div>
+<div class="ttc" id="aclass_cube_html_ae05dc6524cbfd4b0b179cdbf9f440034"><div class="ttname"><a href="class_cube.html#ae05dc6524cbfd4b0b179cdbf9f440034">Cube::normalKeys_f</a></div><div class="ttdeci">void normalKeys_f(unsigned char key, int x, int y)</div><div class="ttdoc">Обрабатывает нажатия обычных клавиш.</div><div class="ttdef"><b>Definition</b> visual_cube.cpp:157</div></div>
+<div class="ttc" id="aclass_cube_html_ae43a2f2498178da246605feec183db3d"><div class="ttname"><a href="class_cube.html#ae43a2f2498178da246605feec183db3d">Cube::orange_cross_check</a></div><div class="ttdeci">bool orange_cross_check()</div><div class="ttdoc">Проверка наличия оранжевого креста на верхней грани.</div><div class="ttdef"><b>Definition</b> solver.cpp:768</div></div>
+<div class="ttc" id="aclass_cube_html_ae58d5a09c69b3cfc30e8478847c82df2"><div class="ttname"><a href="class_cube.html#ae58d5a09c69b3cfc30e8478847c82df2">Cube::check_solved_answer_for_cout</a></div><div class="ttdeci">void check_solved_answer_for_cout()</div><div class="ttdoc">Выводит сообщение в консоль о правильности сборки куба.</div><div class="ttdef"><b>Definition</b> cube_realization.cpp:472</div></div>
+<div class="ttc" id="aclass_cube_html_aeb086eaade12b91665488fbab8d6ec80"><div class="ttname"><a href="class_cube.html#aeb086eaade12b91665488fbab8d6ec80">Cube::second_corner</a></div><div class="ttdeci">void second_corner()</div><div class="ttdoc">Функция сборки углов для нижнего красного креста.</div><div class="ttdef"><b>Definition</b> solver.cpp:311</div></div>
+<div class="ttc" id="aclass_cube_html_aec9ec1b1b4542f5cbc37d4d375bfda05"><div class="ttname"><a href="class_cube.html#aec9ec1b1b4542f5cbc37d4d375bfda05">Cube::left_rotation_90</a></div><div class="ttdeci">void left_rotation_90()</div><div class="ttdoc">Поворачивает левую грань куба на 90 градусов по часовой стрелке.</div><div class="ttdef"><b>Definition</b> rotations.cpp:163</div></div>
+<div class="ttc" id="aclass_cube_html_af3e17612997217afb84a8e724a039728"><div class="ttname"><a href="class_cube.html#af3e17612997217afb84a8e724a039728">Cube::main_solver</a></div><div class="ttdeci">void main_solver()</div><div class="ttdoc">Основной метод для решения кубика Рубика.</div><div class="ttdef"><b>Definition</b> solver.cpp:1065</div></div>
+<div class="ttc" id="aclass_cube_html_af5279fa0c55bca44d981ed033d878fc5"><div class="ttname"><a href="class_cube.html#af5279fa0c55bca44d981ed033d878fc5">Cube::front_rotation_90</a></div><div class="ttdeci">void front_rotation_90()</div><div class="ttdoc">Поворачивает переднюю грань куба на 90 градусов по часовой стрелке.</div><div class="ttdef"><b>Definition</b> rotations.cpp:211</div></div>
+<div class="ttc" id="aclass_cube_html_aff8626c1d9fb88dfb3d3cb69330ef8b4"><div class="ttname"><a href="class_cube.html#aff8626c1d9fb88dfb3d3cb69330ef8b4">Cube::has_all_colors</a></div><div class="ttdeci">bool has_all_colors()</div><div class="ttdoc">Проверяет, есть ли на кубе все цвета.</div><div class="ttdef"><b>Definition</b> cube_realization.cpp:179</div></div>
+<div class="ttc" id="acube_8h_html_aedd64c3f92da850b93776c65fd1cced3"><div class="ttname"><a href="cube_8h.html#aedd64c3f92da850b93776c65fd1cced3">colors</a></div><div class="ttdeci">colors</div><div class="ttdoc">Цвета кубика Рубика.</div><div class="ttdef"><b>Definition</b> cube.h:21</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

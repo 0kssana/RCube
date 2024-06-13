@@ -1,0 +1,163 @@
+\doxysection{cube.\+h}
+\hypertarget{cube_8h_source}{}\label{cube_8h_source}\mbox{\hyperlink{cube_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <GL/glut.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ }std::cout;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{using\ }std::vector;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{cube_8h_aedd64c3f92da850b93776c65fd1cced3}{colors}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ GREEN,}
+\DoxyCodeLine{00023\ \ \ \ \ WHITE,}
+\DoxyCodeLine{00024\ \ \ \ \ BLUE,}
+\DoxyCodeLine{00025\ \ \ \ \ YELLOW,}
+\DoxyCodeLine{00026\ \ \ \ \ ORANGE,}
+\DoxyCodeLine{00027\ \ \ \ \ RED}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cube}{Cube}}\{}
+\DoxyCodeLine{00038\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keyword}{const}\ size\ =\ 3;}
+\DoxyCodeLine{00040\ \ \ \ \ vector<vector<colors>>\ left;}
+\DoxyCodeLine{00041\ \ \ \ \ vector<vector<colors>>\ front;}
+\DoxyCodeLine{00042\ \ \ \ \ vector<vector<colors>>\ right;}
+\DoxyCodeLine{00043\ \ \ \ \ vector<vector<colors>>\ back;}
+\DoxyCodeLine{00044\ \ \ \ \ vector<vector<colors>>\ up;}
+\DoxyCodeLine{00045\ \ \ \ \ vector<vector<colors>>\ down;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{struct\ }palette\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ RED;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GREEN;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ BLUE;}
+\DoxyCodeLine{00050\ \ \ \ \ \};}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{struct\ }x\_y\_z\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ y;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ z;}
+\DoxyCodeLine{00055\ \ \ \ \ \};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{float}\ rotate\_x\ =\ 0;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{float}\ rotate\_y\ =\ 0;}
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_cube_a06f3d86fb63e3aad08623610aa3c17b4}{Cube}}()\{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ left.push\_back(\{\});}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ front.push\_back(\{\});}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ right.push\_back(\{\});}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ back.push\_back(\{\});}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ up.push\_back(\{\});}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ down.push\_back(\{\});}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ size;\ j++)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ left[i].push\_back(GREEN);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ front[i].push\_back(WHITE);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ right[i].push\_back(BLUE);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ back[i].push\_back(YELLOW);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ up[i].push\_back(ORANGE);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ down[i].push\_back(RED);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a519b1e0db2e698d7775c14b619a1881c}{random\_situation}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_aa47e8bb311ce21e721307a62d6025cc3}{fill\_from\_the\_file}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name\_of\_the\_file);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a87fb29889b5b29f1d5667bb5371a38cc}{show}}(std::string\ file\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_adfed617a7f8cd579427d00f807983f78}{show\_to\_concol}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_cube_aff8626c1d9fb88dfb3d3cb69330ef8b4}{has\_all\_colors}}();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_cube_a1a79ca94f337f4cf25d434dd264622e0}{check}}();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a26d59cde6d443e78985d19043c6d5129}{right\_rotation\_90}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a540b4a11cafd1b75aa9a96ea134b2675}{right\_rotation\_against\_90}}();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_aec9ec1b1b4542f5cbc37d4d375bfda05}{left\_rotation\_90}}();}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a80961cf8d4627434cd820c8d0b9fea03}{left\_rotation\_against\_90}}();}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_af5279fa0c55bca44d981ed033d878fc5}{front\_rotation\_90}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a6b952023fae5403bfb710119c6891efa}{front\_rotation\_against\_90}}();}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a020c3aad434ceb2721eb669d3cd5be04}{back\_rotation\_90}}();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a267ee58be6a6b5068f848f2805edfa4a}{back\_rotation\_against\_90}}();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_ab35750256ccbe67da6eaa850c266eac1}{down\_rotation\_90}}();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a396ac6ab3a325cb709d1e3d1d2da0ff9}{down\_rotation\_against\_90}}();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_acad3ef175da8965521a0b0827dbe10ce}{up\_rotation\_90}}();}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a289ccf2ce146edc544bb248514283c75}{up\_rotation\_against\_90}}();}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a0dd3d570e299fe1c8c3397cc5c1e417e}{front\_pif\_paf}}();}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_ad7dcd46f82be4beb127e1610dfa9d1de}{back\_pif\_paf}}();}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a24db3a0a6319b25e096d9f4af2d12a7b}{right\_pif\_paf}}();}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a0a2ffc5b68dc70d0269399974b5b1437}{left\_pif\_paf}}();}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_aba489a19c1f61984387d1a99c188388b}{flower}}();}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a1cec47ad3d26cb44c2f968f92bd0f9c8}{right\_cross}}();}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_abb635521759e037a2fb860671a689c35}{first\_layer}}();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a240434e5c3cfa46a2087b31fe70e2043}{second}}();}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_cube_ac3cfe3b69b93e0bfb3295bb9d140ceb2}{check\_orange\_right\_cross}}();}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_cube_aa9747dc4bab4370d5514bbadd155890d}{assembly\_check}}();}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a382b51090ac19fb8368b43590a167ace}{third}}();}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_cube_ac724a1091bd4cbf70ebbf326210b4dfb}{check\_upper\_edges}}();}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_cube_ae43a2f2498178da246605feec183db3d}{orange\_cross\_check}}();}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_ace529b05a773c6985e013cd2889a4256}{first\_corner}}();}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_aeb086eaade12b91665488fbab8d6ec80}{second\_corner}}();}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a3b42b536a5b3179d73df5bc710e7c9a4}{third\_corner}}();}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_ad45abf4a931fee43ac64f40f0950abb0}{fourth\_corner}}();}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_af3e17612997217afb84a8e724a039728}{main\_solver}}();}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_cube_a8b5135044692f04e623b012939610072}{check\_solved}}();}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_ae58d5a09c69b3cfc30e8478847c82df2}{check\_solved\_answer\_for\_cout}}();}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_acd0f3307cd02487247a6f86934f9f7c5}{check\_answer\_for\_cout}}();}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a593749470e9c978d960d7b50e877cd92}{call\_coloring}}();}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a9346646ed0abf9677ee1aa70ddaad6c9}{coloring}}(vector<vector<colors>>\ \&side,\ \textcolor{keywordtype}{int}\ k);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a2b7604c0ba8756aebeae4fe8ce8242dc}{square\_mini}}(palette\ tmp,\ x\_y\_z\ a);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a968844f4627afa49f517a263ad7b3842}{square}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ z,\ \textcolor{keywordtype}{float}\ rotate,\ vector<palette>\ tmp);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a4a9b666968f2b3752733deca8359454b}{display\_f}}();}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_a5765dfed14428d1f9e0f51975203a567}{specialKeys\_f}}(\textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cube_ae05dc6524cbfd4b0b179cdbf9f440034}{normalKeys\_f}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ key,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00178\ \};}
+
+\end{DoxyCode}
