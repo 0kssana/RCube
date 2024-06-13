@@ -296,7 +296,7 @@ bool Cube::check() {
 
 void Cube::show(std::string file) {
     file = file.empty() ? "Cube.out" : file;
-    ofstream out(file);
+    ofstream out("Cube.out");
     for (int i = 0; i < size; i++) {
         out << "       ";
         for (auto col: up[i]) {
