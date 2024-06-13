@@ -1,7 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
 #include "doctest/doctest.h"
-#include "../RCube/cube.h"  // Включите ваш основной код
+#include "../RCube/cube.h"  
 
 class CubeTest {
 public:
