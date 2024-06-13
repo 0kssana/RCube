@@ -1,0 +1,563 @@
+\doxysection{Класс Cube}
+\hypertarget{class_cube}{}\label{class_cube}\index{Cube@{Cube}}
+
+
+Базовый абстрактный класс для кубика Рубика. Этот класс представляет собой кубик Рубика с методами для управления его состоянием и выполнения операций. Включает методы для вращений, алгоритмов решения, заполнения цветами и графического отображения.  
+
+
+
+
+{\ttfamily \#include $<$cube.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cube_a06f3d86fb63e3aad08623610aa3c17b4}{Cube}} ()
+\begin{DoxyCompactList}\small\item\em Конструктор для класса \doxylink{class_cube}{Cube}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_a519b1e0db2e698d7775c14b619a1881c}{random\+\_\+situation}} ()
+\begin{DoxyCompactList}\small\item\em Генерирует случайную конфигурацию куба. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_aa47e8bb311ce21e721307a62d6025cc3}{fill\+\_\+from\+\_\+the\+\_\+file}} (const char \texorpdfstring{$\ast$}{*}name\+\_\+of\+\_\+the\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Заполняет куб данными из файла. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_a87fb29889b5b29f1d5667bb5371a38cc}\label{class_cube_a87fb29889b5b29f1d5667bb5371a38cc} 
+void {\bfseries show} (std\+::string file="{}"{})
+\begin{DoxyCompactList}\small\item\em Отображает состояние куба и записывает его в файл "{}\+Cube.\+out"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_adfed617a7f8cd579427d00f807983f78}{show\+\_\+to\+\_\+concol}} ()
+\begin{DoxyCompactList}\small\item\em Выводит текущее состояние куба на консоль. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cube_aff8626c1d9fb88dfb3d3cb69330ef8b4}{has\+\_\+all\+\_\+colors}} ()
+\begin{DoxyCompactList}\small\item\em Проверяет, есть ли на кубе все цвета. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cube_a1a79ca94f337f4cf25d434dd264622e0}{check}} ()
+\begin{DoxyCompactList}\small\item\em Проверяет, правильно ли собран куб. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_a26d59cde6d443e78985d19043c6d5129}\label{class_cube_a26d59cde6d443e78985d19043c6d5129} 
+void {\bfseries right\+\_\+rotation\+\_\+90} ()
+\begin{DoxyCompactList}\small\item\em Поворачивает правую грань куба на 90 градусов по часовой стрелке. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_a540b4a11cafd1b75aa9a96ea134b2675}\label{class_cube_a540b4a11cafd1b75aa9a96ea134b2675} 
+void {\bfseries right\+\_\+rotation\+\_\+against\+\_\+90} ()
+\begin{DoxyCompactList}\small\item\em Поворачивает правую грань куба на 90 градусов против часовой стрелки. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_aec9ec1b1b4542f5cbc37d4d375bfda05}\label{class_cube_aec9ec1b1b4542f5cbc37d4d375bfda05} 
+void {\bfseries left\+\_\+rotation\+\_\+90} ()
+\begin{DoxyCompactList}\small\item\em Поворачивает левую грань куба на 90 градусов по часовой стрелке. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_a80961cf8d4627434cd820c8d0b9fea03}\label{class_cube_a80961cf8d4627434cd820c8d0b9fea03} 
+void {\bfseries left\+\_\+rotation\+\_\+against\+\_\+90} ()
+\begin{DoxyCompactList}\small\item\em Поворачивает левую грань куба на 90 градусов против часовой стрелки. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_af5279fa0c55bca44d981ed033d878fc5}\label{class_cube_af5279fa0c55bca44d981ed033d878fc5} 
+void {\bfseries front\+\_\+rotation\+\_\+90} ()
+\begin{DoxyCompactList}\small\item\em Поворачивает переднюю грань куба на 90 градусов по часовой стрелке. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_a6b952023fae5403bfb710119c6891efa}\label{class_cube_a6b952023fae5403bfb710119c6891efa} 
+void {\bfseries front\+\_\+rotation\+\_\+against\+\_\+90} ()
+\begin{DoxyCompactList}\small\item\em Поворачивает переднюю грань куба на 90 градусов против часовой стрелки. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_a020c3aad434ceb2721eb669d3cd5be04}\label{class_cube_a020c3aad434ceb2721eb669d3cd5be04} 
+void {\bfseries back\+\_\+rotation\+\_\+90} ()
+\begin{DoxyCompactList}\small\item\em Поворачивает заднюю грань куба по часовой стрелке на 90 градусов. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_a267ee58be6a6b5068f848f2805edfa4a}\label{class_cube_a267ee58be6a6b5068f848f2805edfa4a} 
+void {\bfseries back\+\_\+rotation\+\_\+against\+\_\+90} ()
+\begin{DoxyCompactList}\small\item\em Поворачивает заднюю грань куба против часовой стрелки на 90 градусов. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_ab35750256ccbe67da6eaa850c266eac1}\label{class_cube_ab35750256ccbe67da6eaa850c266eac1} 
+void {\bfseries down\+\_\+rotation\+\_\+90} ()
+\begin{DoxyCompactList}\small\item\em Поворачивает нижнюю грань куба по часовой стрелке на 90 градусов. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_a396ac6ab3a325cb709d1e3d1d2da0ff9}\label{class_cube_a396ac6ab3a325cb709d1e3d1d2da0ff9} 
+void {\bfseries down\+\_\+rotation\+\_\+against\+\_\+90} ()
+\begin{DoxyCompactList}\small\item\em Поворачивает нижнюю грань куба против часовой стрелки на 90 градусов. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_acad3ef175da8965521a0b0827dbe10ce}\label{class_cube_acad3ef175da8965521a0b0827dbe10ce} 
+void {\bfseries up\+\_\+rotation\+\_\+90} ()
+\begin{DoxyCompactList}\small\item\em Поворачивает верхнюю грань куба по часовой стрелке на 90 градусов. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_a289ccf2ce146edc544bb248514283c75}\label{class_cube_a289ccf2ce146edc544bb248514283c75} 
+void {\bfseries up\+\_\+rotation\+\_\+against\+\_\+90} ()
+\begin{DoxyCompactList}\small\item\em Поворачивает верхнюю грань куба против часовой стрелки на 90 градусов. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_a0dd3d570e299fe1c8c3397cc5c1e417e}{front\+\_\+pif\+\_\+paf}} ()
+\begin{DoxyCompactList}\small\item\em Выполняет комбинацию движений "{}пиф-\/паф"{} на передней грани кубика. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_ad7dcd46f82be4beb127e1610dfa9d1de}\label{class_cube_ad7dcd46f82be4beb127e1610dfa9d1de} 
+void {\bfseries back\+\_\+pif\+\_\+paf} ()
+\begin{DoxyCompactList}\small\item\em Выполняет комбинацию движений "{}пиф-\/паф"{} на задней грани кубика. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_a24db3a0a6319b25e096d9f4af2d12a7b}\label{class_cube_a24db3a0a6319b25e096d9f4af2d12a7b} 
+void {\bfseries right\+\_\+pif\+\_\+paf} ()
+\begin{DoxyCompactList}\small\item\em Выполняет комбинацию движений "{}пиф-\/паф"{} на правой грани кубика. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_a0a2ffc5b68dc70d0269399974b5b1437}\label{class_cube_a0a2ffc5b68dc70d0269399974b5b1437} 
+void {\bfseries left\+\_\+pif\+\_\+paf} ()
+\begin{DoxyCompactList}\small\item\em Выполняет комбинацию движений "{}пиф-\/паф"{} на левой грани кубика. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_aba489a19c1f61984387d1a99c188388b}{flower}} ()
+\begin{DoxyCompactList}\small\item\em Собирает "{}цветок"{} на верхней грани кубика Рубика. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_a1cec47ad3d26cb44c2f968f92bd0f9c8}{right\+\_\+cross}} ()
+\begin{DoxyCompactList}\small\item\em Функция создания правильного креста на нижней грани. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_abb635521759e037a2fb860671a689c35}{first\+\_\+layer}} ()
+\begin{DoxyCompactList}\small\item\em Сборка первого слоя кубика Рубика. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_a240434e5c3cfa46a2087b31fe70e2043}{second}} ()
+\begin{DoxyCompactList}\small\item\em Сборка второго слоя кубика Рубика. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cube_ac3cfe3b69b93e0bfb3295bb9d140ceb2}{check\+\_\+orange\+\_\+right\+\_\+cross}} ()
+\begin{DoxyCompactList}\small\item\em Проверка правильного расположения рёбер креста на верхней грани. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cube_aa9747dc4bab4370d5514bbadd155890d}{assembly\+\_\+check}} ()
+\begin{DoxyCompactList}\small\item\em Проверка полной сборки кубика Рубика. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_a382b51090ac19fb8368b43590a167ace}{third}} ()
+\begin{DoxyCompactList}\small\item\em Метод для сборки третьего слоя кубика Рубика. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cube_ac724a1091bd4cbf70ebbf326210b4dfb}{check\+\_\+upper\+\_\+edges}} ()
+\begin{DoxyCompactList}\small\item\em Проверка правильности расположения углов верхней грани кубика Рубика. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cube_ae43a2f2498178da246605feec183db3d}{orange\+\_\+cross\+\_\+check}} ()
+\begin{DoxyCompactList}\small\item\em Проверка наличия оранжевого креста на верхней грани. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_ace529b05a773c6985e013cd2889a4256}\label{class_cube_ace529b05a773c6985e013cd2889a4256} 
+void {\bfseries first\+\_\+corner} ()
+\begin{DoxyCompactList}\small\item\em Функция предназначена для решения первого углового элемента кубика Рубика, используя алгоритмы на основе цвета и позиции. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_aeb086eaade12b91665488fbab8d6ec80}{second\+\_\+corner}} ()
+\begin{DoxyCompactList}\small\item\em Функция сборки углов для нижнего красного креста. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_a3b42b536a5b3179d73df5bc710e7c9a4}\label{class_cube_a3b42b536a5b3179d73df5bc710e7c9a4} 
+void {\bfseries third\+\_\+corner} ()
+\begin{DoxyCompactList}\small\item\em Функция предназначена для решения первого углового элемента кубика Рубика, используя алгоритмы на основе цвета и позиции. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_ad45abf4a931fee43ac64f40f0950abb0}\label{class_cube_ad45abf4a931fee43ac64f40f0950abb0} 
+void {\bfseries fourth\+\_\+corner} ()
+\begin{DoxyCompactList}\small\item\em Функция предназначена для решения первого углового элемента кубика Рубика, используя алгоритмы на основе цвета и позиции. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_af3e17612997217afb84a8e724a039728}{main\+\_\+solver}} ()
+\begin{DoxyCompactList}\small\item\em Основной метод для решения кубика Рубика. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cube_a8b5135044692f04e623b012939610072}{check\+\_\+solved}} ()
+\begin{DoxyCompactList}\small\item\em Проверяет, правильно ли собран куб. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_ae58d5a09c69b3cfc30e8478847c82df2}\label{class_cube_ae58d5a09c69b3cfc30e8478847c82df2} 
+void {\bfseries check\+\_\+solved\+\_\+answer\+\_\+for\+\_\+cout} ()
+\begin{DoxyCompactList}\small\item\em Выводит сообщение в консоль о правильности сборки куба. \end{DoxyCompactList}\item 
+\Hypertarget{class_cube_acd0f3307cd02487247a6f86934f9f7c5}\label{class_cube_acd0f3307cd02487247a6f86934f9f7c5} 
+void {\bfseries check\+\_\+answer\+\_\+for\+\_\+cout} ()
+\begin{DoxyCompactList}\small\item\em Выводит сообщение в консоль о правильности сборки куба и наличии всех цветов. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_a593749470e9c978d960d7b50e877cd92}{call\+\_\+coloring}} ()
+\begin{DoxyCompactList}\small\item\em Вызывает функцию закрашивания для всех сторон куба. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_a9346646ed0abf9677ee1aa70ddaad6c9}{coloring}} (vector$<$ vector$<$ \mbox{\hyperlink{cube_8h_aedd64c3f92da850b93776c65fd1cced3}{colors}} $>$ $>$ \&side, int k)
+\begin{DoxyCompactList}\small\item\em Закрашивает одну из сторон куба. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_a2b7604c0ba8756aebeae4fe8ce8242dc}{square\+\_\+mini}} (palette tmp, x\+\_\+y\+\_\+z a)
+\begin{DoxyCompactList}\small\item\em Отрисовывает маленький квадрат куба. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_a968844f4627afa49f517a263ad7b3842}{square}} (float x, float y, float z, float rotate, vector$<$ palette $>$ tmp)
+\begin{DoxyCompactList}\small\item\em Отрисовывает одну сторону куба. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_a4a9b666968f2b3752733deca8359454b}{display\+\_\+f}} ()
+\begin{DoxyCompactList}\small\item\em Функция отображения куба. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_a5765dfed14428d1f9e0f51975203a567}{special\+Keys\+\_\+f}} (int key, int x, int y)
+\begin{DoxyCompactList}\small\item\em Обрабатывает нажатия специальных клавиш. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_ae05dc6524cbfd4b0b179cdbf9f440034}{normal\+Keys\+\_\+f}} (unsigned char key, int x, int y)
+\begin{DoxyCompactList}\small\item\em Обрабатывает нажатия обычных клавиш. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Базовый абстрактный класс для кубика Рубика. Этот класс представляет собой кубик Рубика с методами для управления его состоянием и выполнения операций. Включает методы для вращений, алгоритмов решения, заполнения цветами и графического отображения. 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_cube_a06f3d86fb63e3aad08623610aa3c17b4}\label{class_cube_a06f3d86fb63e3aad08623610aa3c17b4} 
+\index{Cube@{Cube}!Cube@{Cube}}
+\index{Cube@{Cube}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{Cube()}{Cube()}}
+{\footnotesize\ttfamily Cube\+::\+Cube (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор для класса \doxylink{class_cube}{Cube}. 
+
+Инициализирует кубик Рубика начальными цветами. 
+
+\doxysubsection{Методы}
+\Hypertarget{class_cube_aa9747dc4bab4370d5514bbadd155890d}\label{class_cube_aa9747dc4bab4370d5514bbadd155890d} 
+\index{Cube@{Cube}!assembly\_check@{assembly\_check}}
+\index{assembly\_check@{assembly\_check}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{assembly\_check()}{assembly\_check()}}
+{\footnotesize\ttfamily bool Cube\+::assembly\+\_\+check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Проверка полной сборки кубика Рубика. 
+
+Метод проверяет, все ли грани кубика Рубика полностью собраны. Это означает, что все элементы каждой грани должны быть одного цвета, соответствующего данной грани.
+
+\begin{DoxyReturn}{Возвращает}
+true, если все грани кубика Рубика полностью собраны, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{class_cube_a593749470e9c978d960d7b50e877cd92}\label{class_cube_a593749470e9c978d960d7b50e877cd92} 
+\index{Cube@{Cube}!call\_coloring@{call\_coloring}}
+\index{call\_coloring@{call\_coloring}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{call\_coloring()}{call\_coloring()}}
+{\footnotesize\ttfamily void Cube\+::call\+\_\+coloring (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Вызывает функцию закрашивания для всех сторон куба. 
+
+\texorpdfstring{$<$}{<} Закрашивает левую сторону.
+
+\texorpdfstring{$<$}{<} Закрашивает правую сторону.
+
+\texorpdfstring{$<$}{<} Закрашивает переднюю сторону.
+
+\texorpdfstring{$<$}{<} Закрашивает заднюю сторону.
+
+\texorpdfstring{$<$}{<} Закрашивает верхнюю сторону.
+
+\texorpdfstring{$<$}{<} Закрашивает нижнюю сторону.\Hypertarget{class_cube_a1a79ca94f337f4cf25d434dd264622e0}\label{class_cube_a1a79ca94f337f4cf25d434dd264622e0} 
+\index{Cube@{Cube}!check@{check}}
+\index{check@{check}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily bool Cube\+::check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Проверяет, правильно ли собран куб. 
+
+\begin{DoxyReturn}{Возвращает}
+true, если куб собран правильно, иначе false. 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Проверка противоположного цвета.\Hypertarget{class_cube_ac3cfe3b69b93e0bfb3295bb9d140ceb2}\label{class_cube_ac3cfe3b69b93e0bfb3295bb9d140ceb2} 
+\index{Cube@{Cube}!check\_orange\_right\_cross@{check\_orange\_right\_cross}}
+\index{check\_orange\_right\_cross@{check\_orange\_right\_cross}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{check\_orange\_right\_cross()}{check\_orange\_right\_cross()}}
+{\footnotesize\ttfamily bool Cube\+::check\+\_\+orange\+\_\+right\+\_\+cross (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Проверка правильного расположения рёбер креста на верхней грани. 
+
+Метод проверяет, что крест на верхней грани собран правильно, и что цвета рёбер соответствуют соседним граням.
+
+\begin{DoxyReturn}{Возвращает}
+true, если крест на верхней грани собран правильно и рёбра имеют правильные цвета, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{class_cube_a8b5135044692f04e623b012939610072}\label{class_cube_a8b5135044692f04e623b012939610072} 
+\index{Cube@{Cube}!check\_solved@{check\_solved}}
+\index{check\_solved@{check\_solved}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{check\_solved()}{check\_solved()}}
+{\footnotesize\ttfamily bool Cube\+::check\+\_\+solved (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Проверяет, правильно ли собран куб. 
+
+\begin{DoxyReturn}{Возвращает}
+true, если куб собран правильно, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{class_cube_ac724a1091bd4cbf70ebbf326210b4dfb}\label{class_cube_ac724a1091bd4cbf70ebbf326210b4dfb} 
+\index{Cube@{Cube}!check\_upper\_edges@{check\_upper\_edges}}
+\index{check\_upper\_edges@{check\_upper\_edges}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{check\_upper\_edges()}{check\_upper\_edges()}}
+{\footnotesize\ttfamily bool Cube\+::check\+\_\+upper\+\_\+edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Проверка правильности расположения углов верхней грани кубика Рубика. 
+
+Метод проверяет, находятся ли углы верхней грани в правильных позициях относительно соседних граней. Проверка выполняется для каждого угла верхней грани и его соседних рёбер.
+
+\begin{DoxyReturn}{Возвращает}
+true, если все углы верхней грани правильно расположены, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{class_cube_a9346646ed0abf9677ee1aa70ddaad6c9}\label{class_cube_a9346646ed0abf9677ee1aa70ddaad6c9} 
+\index{Cube@{Cube}!coloring@{coloring}}
+\index{coloring@{coloring}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{coloring()}{coloring()}}
+{\footnotesize\ttfamily void Cube\+::coloring (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ \mbox{\hyperlink{cube_8h_aedd64c3f92da850b93776c65fd1cced3}{colors}} $>$ $>$ \&}]{side,  }\item[{int}]{k }\end{DoxyParamCaption})}
+
+
+
+Закрашивает одну из сторон куба. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em side} & Сторона куба, представленная в виде вектора цветов. \\
+\hline
+{\em k} & Индекс стороны куба. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Красный цвет.
+
+\texorpdfstring{$<$}{<} Зеленый цвет.
+
+\texorpdfstring{$<$}{<} Синий цвет.
+
+\texorpdfstring{$<$}{<} Белый цвет.
+
+\texorpdfstring{$<$}{<} Желтый цвет.
+
+\texorpdfstring{$<$}{<} Оранжевый цвет.
+
+\texorpdfstring{$<$}{<} front
+
+\texorpdfstring{$<$}{<} back
+
+\texorpdfstring{$<$}{<} left
+
+\texorpdfstring{$<$}{<} right
+
+\texorpdfstring{$<$}{<} up
+
+\texorpdfstring{$<$}{<} down\Hypertarget{class_cube_a4a9b666968f2b3752733deca8359454b}\label{class_cube_a4a9b666968f2b3752733deca8359454b} 
+\index{Cube@{Cube}!display\_f@{display\_f}}
+\index{display\_f@{display\_f}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{display\_f()}{display\_f()}}
+{\footnotesize\ttfamily void Cube\+::display\+\_\+f (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция отображения куба. 
+
+\texorpdfstring{$<$}{<} Масштабирует куб.
+
+\texorpdfstring{$<$}{<} Выполняет все команды Open\+GL.
+
+\texorpdfstring{$<$}{<} Меняет местами буферы.\Hypertarget{class_cube_aa47e8bb311ce21e721307a62d6025cc3}\label{class_cube_aa47e8bb311ce21e721307a62d6025cc3} 
+\index{Cube@{Cube}!fill\_from\_the\_file@{fill\_from\_the\_file}}
+\index{fill\_from\_the\_file@{fill\_from\_the\_file}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{fill\_from\_the\_file()}{fill\_from\_the\_file()}}
+{\footnotesize\ttfamily void Cube\+::fill\+\_\+from\+\_\+the\+\_\+file (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name\+\_\+of\+\_\+the\+\_\+file }\end{DoxyParamCaption})}
+
+
+
+Заполняет куб данными из файла. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em name\+\_\+of\+\_\+the\+\_\+file} & Имя файла. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Временный массив для хранения цветов стороны куба.
+
+\texorpdfstring{$<$}{<} Сохраняет цвет во временный массив.\Hypertarget{class_cube_abb635521759e037a2fb860671a689c35}\label{class_cube_abb635521759e037a2fb860671a689c35} 
+\index{Cube@{Cube}!first\_layer@{first\_layer}}
+\index{first\_layer@{first\_layer}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{first\_layer()}{first\_layer()}}
+{\footnotesize\ttfamily void Cube\+::first\+\_\+layer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Сборка первого слоя кубика Рубика. 
+
+Метод собирает первый слой кубика Рубика, начиная с угловых элементов. Используется последовательность методов {\ttfamily \doxylink{class_cube_aeb086eaade12b91665488fbab8d6ec80}{second\+\_\+corner()}}, {\ttfamily \doxylink{class_cube_ace529b05a773c6985e013cd2889a4256}{first\+\_\+corner()}}, {\ttfamily \doxylink{class_cube_a3b42b536a5b3179d73df5bc710e7c9a4}{third\+\_\+corner()}}, {\ttfamily \doxylink{class_cube_ad45abf4a931fee43ac64f40f0950abb0}{fourth\+\_\+corner()}} для расстановки угловых элементов на свои места. После этого применяются "{}пиф-\/пафы"{} для установки боковых элементов первого слоя. После выполнения этого метода первый слой кубика Рубика будет собран. \Hypertarget{class_cube_aba489a19c1f61984387d1a99c188388b}\label{class_cube_aba489a19c1f61984387d1a99c188388b} 
+\index{Cube@{Cube}!flower@{flower}}
+\index{flower@{flower}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{flower()}{flower()}}
+{\footnotesize\ttfamily void Cube\+::flower (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Собирает "{}цветок"{} на верхней грани кубика Рубика. 
+
+Метод перемещает красные элементы с других граней на центральные позиции верхней грани. Алгоритм продолжает выполняться до тех пор, пока все центральные позиции верхней грани не будут красными. \Hypertarget{class_cube_a0dd3d570e299fe1c8c3397cc5c1e417e}\label{class_cube_a0dd3d570e299fe1c8c3397cc5c1e417e} 
+\index{Cube@{Cube}!front\_pif\_paf@{front\_pif\_paf}}
+\index{front\_pif\_paf@{front\_pif\_paf}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{front\_pif\_paf()}{front\_pif\_paf()}}
+{\footnotesize\ttfamily void Cube\+::front\+\_\+pif\+\_\+paf (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Выполняет комбинацию движений "{}пиф-\/паф"{} на передней грани кубика. 
+
+Метод выполняет следующую последовательность действий\+:
+\begin{DoxyEnumerate}
+\item Поворот передней грани на 90 градусов по часовой стрелке.
+\item Поворот верхней грани на 90 градусов по часовой стрелке.
+\item Поворот передней грани на 90 градусов против часовой стрелки.
+\item Поворот верхней грани на 90 градусов против часовой стрелки. 
+\end{DoxyEnumerate}\Hypertarget{class_cube_aff8626c1d9fb88dfb3d3cb69330ef8b4}\label{class_cube_aff8626c1d9fb88dfb3d3cb69330ef8b4} 
+\index{Cube@{Cube}!has\_all\_colors@{has\_all\_colors}}
+\index{has\_all\_colors@{has\_all\_colors}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{has\_all\_colors()}{has\_all\_colors()}}
+{\footnotesize\ttfamily bool Cube\+::has\+\_\+all\+\_\+colors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Проверяет, есть ли на кубе все цвета. 
+
+\begin{DoxyReturn}{Возвращает}
+true, если все цвета присутствуют, иначе false. 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Проверяет, есть ли по 9 квадратов каждого цвета.\Hypertarget{class_cube_af3e17612997217afb84a8e724a039728}\label{class_cube_af3e17612997217afb84a8e724a039728} 
+\index{Cube@{Cube}!main\_solver@{main\_solver}}
+\index{main\_solver@{main\_solver}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{main\_solver()}{main\_solver()}}
+{\footnotesize\ttfamily void Cube\+::main\+\_\+solver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Основной метод для решения кубика Рубика. 
+
+Этот метод выполняет все необходимые шаги для решения кубика Рубика. Он проверяет корректность введённых значений, а затем выполняет последовательность алгоритмов для решения всех слоев кубика.
+
+Метод работает следующим образом\+:
+\begin{DoxyEnumerate}
+\item Проверяет корректность введённых значений с помощью метода \doxylink{class_cube_a1a79ca94f337f4cf25d434dd264622e0}{check()}.
+\item Если значения некорректны, выводит сообщение и завершает работу.
+\item Если значения корректны, выводит процесс решения.
+\item Вызывает методы для решения каждого слоя кубика\+:
+\begin{DoxyItemize}
+\item \doxylink{class_cube_aba489a19c1f61984387d1a99c188388b}{flower()}
+\item \doxylink{class_cube_a1cec47ad3d26cb44c2f968f92bd0f9c8}{right\+\_\+cross()}
+\item \doxylink{class_cube_abb635521759e037a2fb860671a689c35}{first\+\_\+layer()}
+\item \doxylink{class_cube_a240434e5c3cfa46a2087b31fe70e2043}{second()}
+\item \doxylink{class_cube_a382b51090ac19fb8368b43590a167ace}{third()} 
+\end{DoxyItemize}
+\end{DoxyEnumerate}\Hypertarget{class_cube_ae05dc6524cbfd4b0b179cdbf9f440034}\label{class_cube_ae05dc6524cbfd4b0b179cdbf9f440034} 
+\index{Cube@{Cube}!normalKeys\_f@{normalKeys\_f}}
+\index{normalKeys\_f@{normalKeys\_f}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{normalKeys\_f()}{normalKeys\_f()}}
+{\footnotesize\ttfamily void Cube\+::normal\+Keys\+\_\+f (\begin{DoxyParamCaption}\item[{unsigned char}]{key,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Обрабатывает нажатия обычных клавиш. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em key} & Код клавиши. \\
+\hline
+{\em x} & Координата x курсора мыши. \\
+\hline
+{\em y} & Координата y курсора мыши. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_cube_ae43a2f2498178da246605feec183db3d}\label{class_cube_ae43a2f2498178da246605feec183db3d} 
+\index{Cube@{Cube}!orange\_cross\_check@{orange\_cross\_check}}
+\index{orange\_cross\_check@{orange\_cross\_check}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{orange\_cross\_check()}{orange\_cross\_check()}}
+{\footnotesize\ttfamily bool Cube\+::orange\+\_\+cross\+\_\+check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Проверка наличия оранжевого креста на верхней грани. 
+
+Метод проверяет, что средние элементы верхней грани (крест) имеют оранжевый цвет.
+
+\begin{DoxyReturn}{Возвращает}
+true, если крест из оранжевых элементов собран на верхней грани, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{class_cube_a519b1e0db2e698d7775c14b619a1881c}\label{class_cube_a519b1e0db2e698d7775c14b619a1881c} 
+\index{Cube@{Cube}!random\_situation@{random\_situation}}
+\index{random\_situation@{random\_situation}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{random\_situation()}{random\_situation()}}
+{\footnotesize\ttfamily void Cube\+::random\+\_\+situation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Генерирует случайную конфигурацию куба. 
+
+\texorpdfstring{$<$}{<} Инициализирует генератор случайных чисел.
+
+\texorpdfstring{$<$}{<} Определяет количество случайных поворотов.
+
+\texorpdfstring{$<$}{<} Выбирает случайную команду.
+
+\texorpdfstring{$<$}{<} Выводит текущее состояние куба на консоль.\Hypertarget{class_cube_a1cec47ad3d26cb44c2f968f92bd0f9c8}\label{class_cube_a1cec47ad3d26cb44c2f968f92bd0f9c8} 
+\index{Cube@{Cube}!right\_cross@{right\_cross}}
+\index{right\_cross@{right\_cross}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{right\_cross()}{right\_cross()}}
+{\footnotesize\ttfamily void Cube\+::right\+\_\+cross (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция создания правильного креста на нижней грани. 
+
+Метод right\+\_\+cross создает правильный крест красного цвета на нижней грани кубика Рубика. В каждом шаге проверяется наличие нужных цветов на определенных позициях кубика. Если цвета совпадают, выполняются необходимые повороты для создания креста. \Hypertarget{class_cube_a240434e5c3cfa46a2087b31fe70e2043}\label{class_cube_a240434e5c3cfa46a2087b31fe70e2043} 
+\index{Cube@{Cube}!second@{second}}
+\index{second@{second}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{second()}{second()}}
+{\footnotesize\ttfamily void Cube\+::second (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Сборка второго слоя кубика Рубика. 
+
+Метод собирает второй слой кубика Рубика, устанавливая элементы второго слоя так, чтобы они соответствовали цветам боковых граней и верхней грани кубика. Используется метод "{}пиф-\/паф"{} для установки элементов на свои места. После выполнения этого метода второй слой кубика Рубика будет собран. \Hypertarget{class_cube_aeb086eaade12b91665488fbab8d6ec80}\label{class_cube_aeb086eaade12b91665488fbab8d6ec80} 
+\index{Cube@{Cube}!second\_corner@{second\_corner}}
+\index{second\_corner@{second\_corner}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{second\_corner()}{second\_corner()}}
+{\footnotesize\ttfamily void Cube\+::second\+\_\+corner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция сборки углов для нижнего красного креста. 
+
+Метод second\+\_\+corner собирает углы вокруг нижнего красного креста кубика Рубика. Для каждого угла проверяется совпадение цветов и выполняются необходимые вращения, чтобы установить угол на правильное место. \Hypertarget{class_cube_adfed617a7f8cd579427d00f807983f78}\label{class_cube_adfed617a7f8cd579427d00f807983f78} 
+\index{Cube@{Cube}!show\_to\_concol@{show\_to\_concol}}
+\index{show\_to\_concol@{show\_to\_concol}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{show\_to\_concol()}{show\_to\_concol()}}
+{\footnotesize\ttfamily void Cube\+::show\+\_\+to\+\_\+concol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Выводит текущее состояние куба на консоль. 
+
+\texorpdfstring{$<$}{<} Вывод цвета в консоль.\Hypertarget{class_cube_a5765dfed14428d1f9e0f51975203a567}\label{class_cube_a5765dfed14428d1f9e0f51975203a567} 
+\index{Cube@{Cube}!specialKeys\_f@{specialKeys\_f}}
+\index{specialKeys\_f@{specialKeys\_f}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{specialKeys\_f()}{specialKeys\_f()}}
+{\footnotesize\ttfamily void Cube\+::special\+Keys\+\_\+f (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Обрабатывает нажатия специальных клавиш. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em key} & Код клавиши. \\
+\hline
+{\em x} & Координата x курсора мыши. \\
+\hline
+{\em y} & Координата y курсора мыши. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} y против часовой стрелки.
+
+\texorpdfstring{$<$}{<} y по часовой стрелки.
+
+\texorpdfstring{$<$}{<} x по часовой стрелки.
+
+\texorpdfstring{$<$}{<} x против часовой стрелки.\Hypertarget{class_cube_a968844f4627afa49f517a263ad7b3842}\label{class_cube_a968844f4627afa49f517a263ad7b3842} 
+\index{Cube@{Cube}!square@{square}}
+\index{square@{square}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{square()}{square()}}
+{\footnotesize\ttfamily void Cube\+::square (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z,  }\item[{float}]{rotate,  }\item[{vector$<$ palette $>$}]{tmp }\end{DoxyParamCaption})}
+
+
+
+Отрисовывает одну сторону куба. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em x} & Координата x. \\
+\hline
+{\em y} & Координата y. \\
+\hline
+{\em z} & Координата z. \\
+\hline
+{\em rotate} & Угол поворота. \\
+\hline
+{\em tmp} & Вектор цветов для каждой клетки стороны. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Поворачивает сторону.
+
+\texorpdfstring{$<$}{<} Увеличивает сторону.
+
+\texorpdfstring{$<$}{<} Устанавливает черный цвет для заднего фона.\Hypertarget{class_cube_a2b7604c0ba8756aebeae4fe8ce8242dc}\label{class_cube_a2b7604c0ba8756aebeae4fe8ce8242dc} 
+\index{Cube@{Cube}!square\_mini@{square\_mini}}
+\index{square\_mini@{square\_mini}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{square\_mini()}{square\_mini()}}
+{\footnotesize\ttfamily void Cube\+::square\+\_\+mini (\begin{DoxyParamCaption}\item[{palette}]{tmp,  }\item[{x\+\_\+y\+\_\+z}]{a }\end{DoxyParamCaption})}
+
+
+
+Отрисовывает маленький квадрат куба. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em tmp} & Цвет квадрата. \\
+\hline
+{\em a} & Координаты квадрата. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Перемещает квадрат в нужное положение.
+
+\texorpdfstring{$<$}{<} Устанавливает цвет квадрата.\Hypertarget{class_cube_a382b51090ac19fb8368b43590a167ace}\label{class_cube_a382b51090ac19fb8368b43590a167ace} 
+\index{Cube@{Cube}!third@{third}}
+\index{third@{third}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{third()}{third()}}
+{\footnotesize\ttfamily void Cube\+::third (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод для сборки третьего слоя кубика Рубика. 
+
+Этот метод собирает третий слой кубика Рубика. Создает оранжевый крест. Проверяет на правильность расположения рёбер оранжевого креста. Исправляет рёбра, если они неправильно расположены. 
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{cube_8h}{cube.\+h}}\item 
+\mbox{\hyperlink{cube__realization_8cpp}{cube\+\_\+realization.\+cpp}}\item 
+\mbox{\hyperlink{rotations_8cpp}{rotations.\+cpp}}\item 
+\mbox{\hyperlink{solver_8cpp}{solver.\+cpp}}\item 
+\mbox{\hyperlink{visual__cube_8cpp}{visual\+\_\+cube.\+cpp}}\end{DoxyCompactItemize}
