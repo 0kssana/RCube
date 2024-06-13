@@ -17,6 +17,7 @@ enum colors{
 
 class Cube{
 private:
+    friend class CubeTest;
     int const size = 3;
     vector<vector<colors>> left;
     vector<vector<colors>> front;

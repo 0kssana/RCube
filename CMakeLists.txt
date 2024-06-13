@@ -25,8 +25,15 @@ find_package(GLUT REQUIRED)
 
 target_link_libraries(RCube PRIVATE OpenGL::GL OpenGL::GLU GLUT::GLUT)
 
-add_executable(RCube-tests RCube/test_cube.cpp RCube/visual_cube.cpp)
+add_executable(RCube-tests
+        RCube/test_cube.cpp
+        RCube/cube_realization.cpp
+        RCube/rotations.cpp
+        RCube/solver.cpp
+        RCube/visual_cube.cpp)
+
 target_link_libraries(RCube-tests doctest)
+target_link_libraries(RCube-tests OpenGL::GL OpenGL::GLU GLUT::GLUT)
 
 enable_testing()
 add_test(NAME RCube-tests COMMAND RCube-tests --force-colors -d)
